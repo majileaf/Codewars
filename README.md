@@ -7,4 +7,4 @@ Solving coding challenges every day to stay sharp.
 ## But why?
 Because I see my coding life as a never-ending learning process. By doing all those challenges one often gets to see a different perspective on things. Some solutions are simple yet elegant, some are focusing more on efficiency or readability. 
 
-But above all, solving puzzles are fun!
+But above all, solving all kinds of puzzles is fun!
