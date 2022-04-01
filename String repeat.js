@@ -5,7 +5,7 @@ repeatStr(6, "I") // "IIIIII"
 repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
 */
 
-function repeatStr (n, s) {
+function repeatStr(n, s) {
     const add = s;
     for (let i = 1; i < n; i++) {
         s += add;
