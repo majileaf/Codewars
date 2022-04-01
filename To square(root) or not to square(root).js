@@ -10,10 +10,6 @@ If the number has an integer square root, take this, otherwise square the number
 The input array will always contain only positive numbers and will never be empty or null.
 
 The input array should not be modified!
-
-Have fun coding it and please don't forget to vote and rank this kata! :-)
-
-I have also created other katas. Take a look if you enjoyed this kata!
 */
 
 function squareOrSquareRoot(array) {
