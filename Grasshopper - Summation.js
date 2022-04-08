@@ -11,6 +11,8 @@ summation(8) -> 36
 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
 */
 
+// initial solution:
+/*
 const summation = function (num) {
     let sum = 0;
     for (let i = 1; i <= num; i++) {
@@ -18,3 +20,7 @@ const summation = function (num) {
     }
     return sum;
 }
+*/
+
+// using straight gauss:
+const summation = n => n * (n + 1) / 2;
