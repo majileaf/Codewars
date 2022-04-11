@@ -16,4 +16,4 @@ Inputs and the expected output will never exceed the signed
 32-bit integer limit (2^31 - 1)
 */
 
-const sumStr = (a,b) => String((+a + +b));
+const sumStr = (a,b) => String(+a + +b);
