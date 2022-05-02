@@ -36,16 +36,29 @@ Example
 //     return Object.keys(filtered).length;
 // }
 
+// const duplicateCount = text => {
+//     const itext = text.toLowerCase();
+//     let obj = {};
+//     for (let i = 0; i < itext.length; i++) {
+//         obj[itext[i]] ? obj[itext[i]]++ : obj[itext[i]] = 1;
+//     }
+
+//     let count = 0;
+//     for (key in obj) {
+//         if (obj[key] > 1) count++
+//     }
+//     return count;
+// }
+
+// improved:
 const duplicateCount = text => {
     const itext = text.toLowerCase();
     let obj = {};
+    let count = 0;
+
     for (let i = 0; i < itext.length; i++) {
         obj[itext[i]] ? obj[itext[i]]++ : obj[itext[i]] = 1;
-    }
-
-    let count = 0;
-    for (key in obj) {
-        if (obj[key] > 1) count++
+        if (obj[itext[i]] === 2) count++;
     }
     return count;
 }
