@@ -29,6 +29,10 @@ s="aaaxbbbbyyhwawiwjjjwwm"
 printer_error(s) => "8/22"
 */
 
-const printerError = s => `${s.split('').filter(e => !'abcdefghijklm'.includes(e)).length}/${s.length}`;
+// initital solution:
+// const printerError = s => `${s.split('').filter(e => !'abcdefghijklm'.includes(e)).length}/${s.length}`;
+
+// improved:
+const printerError = s => `${s.split('').filter(e => e > 'm').length}/${s.length}`;
 
 console.log(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")) // "3/56"
