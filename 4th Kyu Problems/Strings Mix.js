@@ -47,69 +47,118 @@ s1 = "mmmmm m nnnnn y&friend&Paul has heavy hats! &"
 s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss"
 */
+// initial solution:
+// const count = str => str.split('').reduce((sum, n) => {
+//     if (n >= 'a' && n < 'z') sum[n] ? sum[n]++ : sum[n] = 1;
+//     return sum;
+// }, {})
 
-const count = str => str.split('').reduce((sum, n) => {
-    if (n >= 'a' && n < 'z') sum[n] ? sum[n]++ : sum[n] = 1;
+// const mix = (s1, s2) => {
+//     // count all valid letter occurences
+//     const obj1 = count(s1);
+//     const obj2 = count(s2);
+
+//     // create array of obj1 + obj2, filter out duplicates and occurrences less than 2
+//     const allLetters = new Set(Object.keys(obj1).concat(Object.keys(obj2)));
+//     let arr = [];
+
+//     for (const key of allLetters) {
+//         if (obj1[key] > 1 || obj2[key] > 1) {
+//             if (obj1[key] > obj2[key]) {
+//                 arr.push({'prefix': 1, 'letter': [key][0], 'count': obj1[key]}) 
+//             } else if (obj1[key] < obj2[key]) {
+//                 arr.push({'prefix': 2, 'letter': [key][0], 'count': obj2[key]}) 
+//             } else if (obj1[key] === obj2[key]) {
+//                 arr.push({'prefix': 3, 'letter': [key][0], 'count': obj1[key]}) 
+//             } else if (obj1[key]) {
+//                 arr.push({'prefix': 1, 'letter': [key][0], 'count': obj1[key]}) 
+//             } else if (obj2[key]) {
+//                 arr.push({'prefix': 2, 'letter': [key][0], 'count': obj2[key]}) 
+//             }
+//         }
+//     }
+
+//     // sort by frequency > prefix ("1" > "2" > "=") > character alphabetically
+//     arr.sort((a, b) => {
+//         if (b.count > a.count) {
+//             return 1;
+//         } else if (b.count < a.count) {
+//             return -1;
+//         } else {
+//             if (b.prefix > a.prefix) {
+//                 return -1;
+//             } else if (b.prefix < a.prefix) {
+//                 return 1;
+//             } else {
+//                 if (b.letter > a.letter) {
+//                     return -1;
+//                 } else if (b.letter < a.letter) {
+//                     return 1;
+//                 } else {
+//                     return 0;
+//                 }
+//             }
+//         }
+//     });
+
+//     // create string
+//     let strArr = [];
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i].prefix === 3) arr[i].prefix = '=';
+//         strArr.push(`${arr[i].prefix}:${arr[i].letter.repeat(arr[i].count)}`);
+//     }
+//     return strArr.join('/');
+// }
+
+///////////////////////////////////////////////////////////////////////////
+
+// shortened
+// const count = str =>
+//   str.split('').reduce((sum, n) => {
+//     if (n >= 'a' && n < 'z') sum[n] ? sum[n]++ : (sum[n] = 1);
+//     return sum;
+//   }, {});
+
+// const mix = (s1, s2) => {
+//   // count all valid letter occurences
+//   const obj1 = count(s1);
+//   const obj2 = count(s2);
+
+//   // create array of obj1 + obj2, filter out duplicates and occurrences less than 2
+//   const allLetters = new Set(Object.keys(obj1).filter(e => obj1[e] > 1).concat(Object.keys(obj2).filter(e => obj2[e] > 1)));
+
+//   let arr = [];
+//   for (const key of allLetters) {
+//     arr.push({prefix: (obj1[key] === obj2[key] ? 3 : obj1[key] > (obj2[key] || 0) ? 1 : 2), letter: [key][0], count: obj1[key] > (obj2[key] || 0) ? obj1[key] : obj2[key]})
+//   }
+
+//   // sort by frequency > prefix ("1" > "2" > "=") > character alphabetically
+//   arr.sort((a, b) => b.count - a.count || a.prefix - b.prefix || a.letter.localeCompare(b.letter));
+
+//   // create string
+//   return arr.map(e => `${(e.prefix === 3) ? e.prefix = '=' : e.prefix}:${e.letter.repeat(e.count)}`).join('/');
+// };
+
+///////////////////////////////////////////////////////////////////////////
+
+// should probably stop here:
+const count = str =>
+  str.split('').reduce((sum, n) => {
+    if (n >= 'a' && n < 'z') sum[n] ? sum[n]++ : (sum[n] = 1);
     return sum;
-}, {})
+  }, {});
 
 const mix = (s1, s2) => {
-    // count all valid letter occurences
-    const obj1 = count(s1);
-    const obj2 = count(s2);
-
-    // create array of obj1 + obj2, filter out duplicates and occurrences less than 2
-    const allLetters = new Set(Object.keys(obj1).concat(Object.keys(obj2)));
-    let arr = [];
-
-    for (const key of allLetters) {
-        if (obj1[key] > 1 || obj2[key] > 1) {
-            if (obj1[key] > obj2[key]) {
-                arr.push({'prefix': 1, 'letter': [key][0], 'count': obj1[key]}) 
-            } else if (obj1[key] < obj2[key]) {
-                arr.push({'prefix': 2, 'letter': [key][0], 'count': obj2[key]}) 
-            } else if (obj1[key] === obj2[key]) {
-                arr.push({'prefix': 3, 'letter': [key][0], 'count': obj1[key]}) 
-            } else if (obj1[key]) {
-                arr.push({'prefix': 1, 'letter': [key][0], 'count': obj1[key]}) 
-            } else if (obj2[key]) {
-                arr.push({'prefix': 2, 'letter': [key][0], 'count': obj2[key]}) 
-            }
-        }
-    }
-
-    // sort by frequency > prefix ("1" > "2" > "=") > character alphabetically
-    arr.sort((a, b) => {
-        if (b.count > a.count) {
-            return 1;
-        } else if (b.count < a.count) {
-            return -1;
-        } else {
-            if (b.prefix > a.prefix) {
-                return -1;
-            } else if (b.prefix < a.prefix) {
-                return 1;
-            } else {
-                if (b.letter > a.letter) {
-                    return -1;
-                } else if (b.letter < a.letter) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-        }
-    });
-
-    // create string
-    let strArr = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].prefix === 3) arr[i].prefix = '=';
-        strArr.push(`${arr[i].prefix}:${arr[i].letter.repeat(arr[i].count)}`);
-    }
-    return strArr.join('/');
-}
+  const obj1 = count(s1);
+  const obj2 = count(s2);
+  
+  return [...new Set(Object.keys(obj1).filter(e => obj1[e] > 1).concat(Object.keys(obj2).filter(e => obj2[e] > 1)))]
+    .map(key => ({prefix: (obj1[key] === obj2[key] ? 3 : obj1[key] > (obj2[key] || 0) ? 1 : 2), letter: [key][0], count: obj1[key] > (obj2[key] || 0) ? obj1[key] : obj2[key]}))
+    .sort((a, b) => b.count - a.count || a.prefix - b.prefix || a.letter.localeCompare(b.letter))
+    .map(e => `${(e.prefix === 3) ? e.prefix = '=' : e.prefix}:${e.letter.repeat(e.count)}`)
+    .join('/');
+};
 
 s1 = "my&friend&Paul has heavy hats! &"
 s2 = "my friend John has many many friends &"
