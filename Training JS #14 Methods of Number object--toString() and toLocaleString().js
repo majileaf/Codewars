@@ -1,4 +1,4 @@
-/* Training JS #14: Methods of Number object--toString() and toLocaleString()
+/*
 This time we learn about two useful methods of Number objects: toString() and 
 toLocaleString(). the basic usage of the two methods is to convert a number 
 into a string. look at this:
@@ -53,8 +53,11 @@ colorOf(1, 2 ,3) should return "#010203"
 That's all of your work. My work is print your color code on your screen.
 */
 
-function colorOf(r,g,b){
-  //coding here
+const colorOf = (r,g,b) => {
+  r = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
+  g = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
+  b = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
+  return '#' + r + g + b;
 }
 
 console.log(colorOf(255,0,0)) // "#ff0000"
