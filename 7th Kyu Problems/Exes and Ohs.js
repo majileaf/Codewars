@@ -14,6 +14,12 @@ XO("zzoo") => false
 
 const XO = str => !str.toLowerCase().split('').reduce((sum, n) => sum + (n === 'x' ? 1 : n === 'o' ? -1 : 0), 0);
 
+// alternatively:
+// const XO = str => {
+//     str = str.toLowerCase();
+//     return str.split('x').length === str.split('o').length;
+// }
+
 console.log(XO('xo')) // true
 console.log(XO("xxOo")) // true
 console.log(XO("xxxm")) // false
