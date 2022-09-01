@@ -14,9 +14,13 @@ Examples:
 (the only-positive or only-negative integer may appear more than once)
 */
 
-function solve(arr){
-    //..
-};
+// initial solution:
+// const solve = arr => arr.filter(e => !arr.includes(-e))[0];
+
+const solve = arr => arr.find(e => !arr.includes(-e));
+
+// alternatively:
+// const solve = arr => [...new Set(arr)].reduce((sum, n) => sum + n, 0);
 
 console.log(solve([1,-1,2,-2,3])) // 3
 console.log(solve([-3,1,2,3,-1,-4,-2])) // -4
