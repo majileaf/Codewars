@@ -16,8 +16,27 @@ Examples:
 null, ""    -> equal
 */
 
-function compare(s1, s2) {
+const compare = (s1, s2) => {
+    // if (s1 === s2) return true;
+    if ((s1?.length || 0) === 0) s1 = '';
+    if ((s2?.length || 0) === 0) s2 = '';
 
+    return counting(s1) === counting(s2);
+}
+
+const counting = string => {
+    string = string.toUpperCase();
+    let sum = 0;
+
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] >= 'A' && string[i] <= 'Z') {
+            sum += string[i].charCodeAt();
+        } else {
+            sum = 0;
+            break;
+        }
+    }
+    return sum;
 }
 
 console.log(compare("AD", "BC")) // true
