@@ -7,8 +7,19 @@ For example, solve("gh12cdy695m1") = 695, because this is the largest of all
 number groupings.
 */
 
-function solve(s){
+const solve3 = s => {
+    let arr = [];
+    let str = '';
 
+    for (let i = 0; i < s.length; i++) {
+        if (Number(s[i]) >= 0 && Number(s[i]) <= 9) str += s[i];
+
+        if (!(Number(s[i + 1]) >= 0 && Number(s[i + 1]) <= 9) && str !== '') {
+            arr.push(Number(str));
+            str = '';
+        }
+    }
+    return Math.max(...arr);
 }
 
 console.log(solve('gh12cdy695m1')) // 695
