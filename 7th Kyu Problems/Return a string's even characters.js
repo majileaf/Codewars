@@ -20,7 +20,7 @@ For example:
 const evenChars = string => {
     return (string.length < 2 || string.length > 100) 
         ? 'invalid string'
-        : [...string].filter((e, i) => (i % 2 !== 0), []);
+        : [...string].filter((_, i) => (i % 2 !== 0));
 }
 
 console.log(evenChars ("1234")) // ["2", "4"]
