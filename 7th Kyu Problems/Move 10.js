@@ -6,9 +6,7 @@ If it goes past 'z', start again at 'a'.
 Input will be a string with length > 0.
 */
 
-function moveTen(s){
-
-}
+const moveTen = s => [...s].map(e => String.fromCharCode(((e.charCodeAt() + 10 - 97) % 26) + 97)).join('');
 
 console.log(moveTen("testcase")) // "docdmkco"
 console.log(moveTen("codewars")) // "mynogkbc"
