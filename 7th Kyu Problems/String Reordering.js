@@ -18,9 +18,10 @@ Output:
 'Vatsan took his dog for a spin'
 */
 
-function sentence(List) {
-  // your code
-}
+const sentence = List => List
+    .sort((a, b) => Object.keys(a) - Object.keys(b))
+    .map(e => Object.values(e)[0])
+    .join(' ');
 
 let List = [
     {'4': 'dog' }, {'2': 'took'}, {'3': 'his'}, 
