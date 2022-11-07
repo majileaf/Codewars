@@ -18,9 +18,15 @@ Output:
 'Vatsan took his dog for a spin'
 */
 
+// initial solution:
+// const sentence = List => List
+//     .sort((a, b) => Object.keys(a) - Object.keys(b))
+//     .map(e => Object.values(e)[0])
+//     .join(' ');
+
 const sentence = List => List
     .sort((a, b) => Object.keys(a) - Object.keys(b))
-    .map(e => Object.values(e)[0])
+    .map(e => Object.values(e))
     .join(' ');
 
 let List = [
