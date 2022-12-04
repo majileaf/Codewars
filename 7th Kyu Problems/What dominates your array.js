@@ -13,8 +13,7 @@ All values in arr will be >=0.
 
 const dominator = arr => {
    const count = arr.reduce((sum, n) => (sum[n] = (sum[n] || 0) + 1, sum), {});
-   const maxDom  = +Object.keys(count).find(e => count[e] > arr.length / 2);
-   return maxDom ? maxDom : -1;
+   return +Object.keys(count).find(e => count[e] > arr.length / 2) || - 1;
 }
 
 console.log(dominator([3,4,3,2,3,1,3,3])) // 3
