@@ -23,9 +23,7 @@ counterEffect("0050") // [[0],[0],[0,1,2,3,4,5],[0]]
 counterEffect("0000") // [[0],[0],[0],[0]]
 */
 
-function counterEffect(hitCount) {
- //do your thing
-}
+const counterEffect = hitCount => [...hitCount].map(e => [...Array(+e + 1)].map((_, i) => i));
 
 console.log(counterEffect("1250")) // [[0,1],[0,1,2],[0,1,2,3,4,5],[0]]
 console.log(counterEffect("0050")) // [[0],[0],[0,1,2,3,4,5],[0]]
