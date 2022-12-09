@@ -23,8 +23,8 @@ Do not expect any negative or invalid inputs.
 const save = (sizes, hd) => {
   return sizes
       .slice(0)
-      .reduce(([count, sum, hdSize], n, i, arr) => {
-          if (sum + n >= hdSize) arr.splice(1);
+      .reduce(([count, sum, hdSize], n, _, arr) => {
+          if (sum + n > hdSize) arr.splice(1);
           return sum + n <= hdSize 
               ? [count + 1, sum + n, hdSize]
               : [count, sum, hdSize];
