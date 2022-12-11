@@ -17,15 +17,15 @@ If there are less or more than two occurrences of the number to search for, retu
 or in Haskell, Nothing.
 */
 
-var lengthOfSequence = function (arr, n) {
-  // TODO: Write some scripts here
-};
+const lengthOfSequence = (arr, n) => {
+  if (arr.filter(e => e === n).length !== 2) return 0;
+  return arr.lastIndexOf(n) - arr.indexOf(n) + 1;
+}
 
 console.log(lengthOfSequence([1, 1], 1)) // 2
 console.log(lengthOfSequence([1, 2, 3, 1], 1)) // 4
 console.log(lengthOfSequence([-7, 5, 0, 2, 9, 5], 5)) // 5
 console.log(lengthOfSequence([-7, 6, 2, -7, 4], -7)) // 4
-
 console.log(lengthOfSequence([0, 6, 2, 1, 4, 7], -7)) // 0
 console.log(lengthOfSequence([-7, 6, 2, 1, 4, 3], -7)) // 0
 console.log(lengthOfSequence([-7, 6, 2, -7, 4, -7], -7)) // 0
