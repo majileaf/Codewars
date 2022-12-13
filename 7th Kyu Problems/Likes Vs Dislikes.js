@@ -23,17 +23,27 @@ If the list is empty, return Nothing.
 
 // Like, Dislike, Nothing come from Preloaded
 
-function likeOrDislike(buttons) {
-  return Like || Dislike || Nothing ;
+const likeOrDislike = buttons => {
+  if (buttons.length === 0) return 'Nothing';
+  
+  return buttons.reduce((sum, n) => {
+      if (sum === 'Nothing' && n === 'Like') sum = 'Like';
+          else if (sum === 'Nothing' && n === 'Dislike') sum = 'Dislike';
+          else if (sum === 'Like' && n === 'Like') sum = 'Nothing';
+          else if (sum === 'Dislike' && n === 'Dislike') sum = 'Nothing';
+          else if (sum === 'Like' && n === 'Dislike') sum = 'Dislike';
+          else if (sum === 'Dislike' && n === 'Like') sum = 'Like';
+      return sum;
+  }, 'Nothing')
 }
 
-console.log(likeOrDislike([Dislike])) // Dislike 
-console.log(likeOrDislike([Like,Like])) // Nothing 
-console.log(likeOrDislike([Dislike,Like])) // Like 
-console.log(likeOrDislike([Like,Dislike,Dislike])) // Nothing 
-console.log(likeOrDislike([Dislike,Dislike])) // Nothing 
-console.log(likeOrDislike([Like,Like,Like])) // Like 
-console.log(likeOrDislike([Like,Dislike])) // Dislike 
-console.log(likeOrDislike([Dislike,Like,Dislike])) // Dislike 
-console.log(likeOrDislike([Like,Like,Dislike,Like,Like,Like,Like,Dislike])) // Dislike 
+console.log(likeOrDislike(['Dislike'])) // Dislike 
+console.log(likeOrDislike(['Like','Like'])) // Nothing 
+console.log(likeOrDislike(['Dislike','Like'])) // Like 
+console.log(likeOrDislike(['Like','Dislike','Dislike'])) // Nothing 
+console.log(likeOrDislike(['Dislike','Dislike'])) // Nothing 
+console.log(likeOrDislike(['Like','Like','Like'])) // Like 
+console.log(likeOrDislike(['Like','Dislike'])) // Dislike 
+console.log(likeOrDislike(['Dislike','Like','Dislike'])) // Dislike 
+console.log(likeOrDislike(['Like','Like','Dislike','Like','Like','Like','Like','Dislike'])) // Dislike 
 console.log(likeOrDislike([])) // Nothing 
