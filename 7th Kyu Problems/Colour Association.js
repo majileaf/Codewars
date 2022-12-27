@@ -9,9 +9,7 @@ For example:
 var array = [["white", "goodness"], ...] //returns [{white: 'goodness'}, ...]
 */
 
-function colourAssociation(array){
-  // We <3 colours..
-}
+const colourAssociation = array => array.map(e => e = {[e[0]] : e[1]});
 
 console.log(colourAssociation([["white", "goodness"], ["blue", "tranquility"]])) // [{white:"goodness"},{blue:"tranquility"}]
 console.log(colourAssociation([["red", "energy"],["yellow", "creativity"],["brown" , "friendly"],["green", "growth"]])) // [{red: "energy"},{yellow: "creativity"}, {brown: "friendly"},{green: "growth"}]
