@@ -22,9 +22,7 @@ Even though there are no spaces, it is still valid because none are needed:
 Note - there will be no punctuation or digits in the input string, only letters.
 */
 
-function validSpacing(s) {
-  // write your code here
-}
+const validSpacing = s => s[0] !== ' ' && s[s.length - 1] !== ' ' && !s.includes('  ');
 
 console.log(validSpacing(' Hello world')) // false
 console.log(validSpacing('Hello  world ')) // false
