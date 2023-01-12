@@ -4,7 +4,7 @@ Bob is a lazy man.
 He needs you to create a method that can determine how many letters 
 (both uppercase and lowercase ASCII letters) and digits are in a given string.
 
-Example:
+Example:c
 "hel2!lo" --> 6
 "wicked .. !" --> 6
 "!?..A" --> 1
@@ -16,6 +16,10 @@ Example:
 
 const countLettersAndDigits = input => [...input].filter(check).length;
 const check = n => (n >= 'A' && n <= 'Z' || n >= 'a' && n <= 'z' || n >= '0' && n <= '9');
+
+// alternatively
+// const countLettersAndDigits = input => [...input.toLowerCase()].filter(check).length;
+// const check = n => (n >= 'a' && n <= 'z' || n >= '0' && n <= '9');
 
 console.log(countLettersAndDigits("hel2!lo")) // 6
 console.log(countLettersAndDigits("n!!_ice!!123")) // 7
