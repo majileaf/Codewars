@@ -18,11 +18,26 @@ D = 6
 result = [6, 3, 7, 5, 4, 7]
 */
 
-function lastDigit(n, d) {
-  
-}
+// initial solution
+// const lastDigit = (n, d) => {
+//     if (d <= 0) return [];
+//     n = String(n);
+
+//     return d > n.length 
+//         ? [...n].map(Number) 
+//         : [...n.slice(-d)].map(Number);
+// }
+
+const lastDigit = (n, d) => d <= 0 
+    ? [] 
+    : [...String(n).slice(-d)].map(Number);
 
 console.log(lastDigit(1,1)) // [1]
 console.log(lastDigit(123767,4)) // [3,7,6,7]
 console.log(lastDigit(0,1)) // [0]
 console.log(lastDigit(34625647867585,10)) // [5,6,4,7,8,6,7,5,8,5]
+
+console.log(lastDigit(1234,0)) // []
+console.log(lastDigit(24134,-4)) // []
+
+console.log(lastDigit(1343,5)) // [1,3,4,3]
