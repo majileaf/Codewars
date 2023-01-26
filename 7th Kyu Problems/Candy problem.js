@@ -29,8 +29,10 @@ candies ([]) // return -1
 candies ([1,6]) // return 5
 */
 
-function candies(kids){
-  // ...
+const candies = kids => {
+  return kids.length > 1
+      ? Math.max(...kids) * kids.length - kids.reduce((sum, n) => sum + n, 0)
+      : -1;
 }
 
 console.log(candies([5,8,6,4])) // 9
