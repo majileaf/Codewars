@@ -16,8 +16,10 @@ otherwise return False.
 https://en.wikipedia.org/wiki/Harshad_number
 */
 
-function numberJoy(n) {
-    // your code
+const numberJoy = n => {
+    const digitSum = [...String(n)].reduce((sum, n) => sum + +n, 0);
+    const reverseSum = +[...String(digitSum)].reverse().join('');
+    return n === digitSum * reverseSum;
 }
 
 console.log(numberJoy(1997)) // false
