@@ -7,18 +7,34 @@ of the integers is 3635.
 Note: only positive integers will be tested.
 */
 
+// initial solution:
+// const sumOfIntegersInString = s => {
+//   let sum = 0;
+//   let str = '';
+
+//   for (let i = 0; i < s.length; i ++) {
+//       if (s[i] == parseInt(s[i])) str += s[i];
+//       if (s[i] != parseInt(s[i]) && str !== '' || s[s.length - 1] == parseInt(s[i])) {
+//           sum += Number(str);
+//           str = '';
+//       }
+//   }
+
+//   return sum;
+// }
+
 const sumOfIntegersInString = s => {
   let sum = 0;
   let str = '';
 
-  for (let i = 0; i < s.length; i ++) {
+  for (let i = 0; i <= s.length; i ++) {
       if (s[i] == parseInt(s[i])) str += s[i];
-      if (s[i] != parseInt(s[i]) && str !== '' || s[s.length - 1] == parseInt(s[i])) {
+      else if (str !== '') {
           sum += Number(str);
           str = '';
       }
   }
-
+  
   return sum;
 }
 
