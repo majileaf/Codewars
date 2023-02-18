@@ -19,9 +19,21 @@ Write a function that takes number of balls (≥ 1) and calculates
 how many levels you can build a triangle.
 */
 
-function pyramid(balls) {
-  // your code here
-}
+// initial solution:
+// const pyramid = balls => {
+//     let total = 0;
+//     let i = 0;
+
+//     while (total <= balls) {
+//         total += i + 1;
+//         i++;
+//     }
+
+//     return i - 1;
+// }
+
+// Math solution:
+const pyramid = balls => Math.floor(0.5 * (Math.sqrt(8 * balls + 1) - 1));
 
 console.log(pyramid(1)) // 1
 console.log(pyramid(4)) // 2
