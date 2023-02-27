@@ -11,8 +11,12 @@ function min(a, b){
 }
 */
 
-function min(a, b){
-  return (a<b)?a:b;
+const min = (a, b) => {
+  a = Number(a);
+  b = Number(b);
+  if (Number.isNaN(a) || Number.isNaN(b)) return NaN;
+
+  return (a < b) ? a : b;
 }
 
 console.log(min(1, -2.5)) //-2.5
