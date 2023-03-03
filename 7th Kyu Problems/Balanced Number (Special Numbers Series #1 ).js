@@ -43,8 +43,19 @@ sum of all digits to the right of the middle digit(s) -> 20
 10 and 20 are not equal, so it's not balanced.
 */
 
-function balancedNum(number){
-    return "Do your magic!"
+const balancedNum = number => {
+    let arr = [...String(number)];
+
+    (arr.length % 2 !== 0) 
+        ? arr.splice(Math.floor(arr.length / 2), 1)
+        : arr.splice(arr.length / 2 - 1, 2);
+    
+    [leftSum, rightSum] = arr.reduce(([left, right], n, i) => (i < arr.length / 2 
+        ? left += +n 
+        : right += +n
+    , [left, right]), [0, 0]);
+
+    return leftSum === rightSum ? 'Balanced' : 'Not Balanced';
 }
 
 console.log(balancedNum(7)) // "Balanced"
