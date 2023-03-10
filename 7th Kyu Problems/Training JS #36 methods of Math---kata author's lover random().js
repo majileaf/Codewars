@@ -102,15 +102,20 @@ CD5678%^ IG7593~% FH8638@&
 EF9012!@ GB7047%$ KD7604^%
 */
 
-const rndCode = () => {
-  let str = '';
-  const ucLetters = 'ABCDEFGHIJKLM';
-  const symbols = '~!@#$%^&*';
+// initial solution:
+// const rndCode = () => {
+//   let str = '';
+//   const ucLetters = 'ABCDEFGHIJKLM';
+//   const symbols = '~!@#$%^&*';
 
-  for (let i = 0; i < 8; i++) {
-      if (i < 2) str += ucLetters[~~(Math.random() * ucLetters.length)];
-      else if (i < 6) str += ~~(Math.random() * 9);
-      else str += symbols[~~(Math.random() * symbols.length)];
-  }
-  return str;
-}
+//   for (let i = 0; i < 8; i++) {
+//       if (i < 2) str += ucLetters[~~(Math.random() * ucLetters.length)];
+//       else if (i < 6) str += ~~(Math.random() * 9);
+//       else str += symbols[~~(Math.random() * symbols.length)];
+//   }
+//   return str;
+// }
+
+const createSequence = (symbols, length) => [...Array(length)].map(_ => symbols[~~(Math.random() * symbols.length)]).join('');
+
+const rndCode = () => createSequence('ABCDEFGHIJKLM', 2) + createSequence('0123456789', 4) + createSequence('~!@#$%^&*', 2);
