@@ -1,4 +1,4 @@
-/*
+/* Training JS #38: Regular Expression--"^","$", "." and test()
 From this lesson, we will enter the mysterious world of regular expressions. We can learn it as a foreign language. Learn its grammar, familiar with its vocabulary, practice and practice, Accumulate experience... In the end you will be the master of the regular expression.
 
 First we learn a method of Object RegExp: test(). It is used to test whether a string matches the RegExp Object. It returns a boolean value: true/false. See an example:
@@ -106,9 +106,7 @@ findSimilarity("bag dog dig dot doog dogs","god") should return ""
 Hint: Use filter() will make your work easier; If you don't know how to solve the kata, please refer to the examples of lesson.
 */
 
-function findSimilarity(str,word){
-  //coding here...
-}
+const countAnimals = (animals, count) => count.map(e => (animals.match(new RegExp(e, 'g')) || []).length);
 
 console.log(findSimilarity("bag dog dig dot doog dogs","dog")) // "dog dig"
 console.log(findSimilarity("bag dog dig dot doog dogs","dig")) // "dog dig"
