@@ -121,9 +121,7 @@ countAnimals("dog,dog,cat",["dog","cat"]); //=> [2,1]
 countAnimals("dog,dog,cat",["pig","cow"]); //=> [0,0]
 */
 
-function countAnimals(animals, count){
-  //coding here...
-}
+const countAnimals = (animals, count) => count.map(e => (animals.match(new RegExp(e, 'g')) || []).length);
 
 console.log(countAnimals("dog,cat",["dog","cat"])); //=> [1,1]
 console.log(countAnimals("dog,cat",["dog","cat","pig"])); //=> [1,1,0]
