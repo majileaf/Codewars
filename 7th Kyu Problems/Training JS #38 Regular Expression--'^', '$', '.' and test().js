@@ -106,7 +106,11 @@ findSimilarity("bag dog dig dot doog dogs","god") should return ""
 Hint: Use filter() will make your work easier; If you don't know how to solve the kata, please refer to the examples of lesson.
 */
 
-const countAnimals = (animals, count) => count.map(e => (animals.match(new RegExp(e, 'g')) || []).length);
+const findSimilarity = (str, word) => {
+  const regStr = word[0] + Array(word.length - 1).join('.') + word.slice(-1);
+  const reg = new RegExp('^' + regStr + '$');
+  return str.split(' ').filter(e => e.length === word.length && reg.test(e)).join(' ');
+}
 
 console.log(findSimilarity("bag dog dig dot doog dogs","dog")) // "dog dig"
 console.log(findSimilarity("bag dog dig dot doog dogs","dig")) // "dog dig"
