@@ -104,7 +104,10 @@ regex.test("1-90000") should return false
 regex.test("-90000123") should return false
 */
 
-var regex = /^-?9{1}.*?0{4,}$/
+// initial solution:
+// var regex = /^-?9{1}.*?0{4,}$/
+
+var regex = /^-?9.*?0{4}$/
 
 console.log(regex.test("90000")) // true
 console.log(regex.test("-90000")) // true
