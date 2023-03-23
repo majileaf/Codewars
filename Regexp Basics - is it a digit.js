@@ -5,7 +5,7 @@ false otherwise.
 */
 
 String.prototype.digit = function() {
-  return false;
+  return (/^[0-9]/).test(this);
 };
 
 console.log(''.digit()) // false
