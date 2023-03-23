@@ -15,7 +15,7 @@ lowercaseCount("abcdefghijklmnopqrstuvwxyz"); ===> 26
 //     return [...str].filter(e => (/[a-z]/).test(e)).length;
 // }
 
-const lowercaseCount = str => str.match(/[a-z]/g).length;
+const lowercaseCount = str => (str.match(/[a-z]/g) || []).length;
 
 console.log(lowercaseCount("abc")) // 3
 console.log(lowercaseCount("abcABC123")) // 3
