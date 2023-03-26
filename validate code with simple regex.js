@@ -6,9 +6,7 @@ if so. Return false otherwise.
 You can assume the input will always be a number.
 */
 
-function validateCode (code) {
-//your code here
-}
+const validateCode = code => (/^[1-3]/).test(code);
 
 console.log(validateCode(123)) // true
 console.log(validateCode(248)) // true
