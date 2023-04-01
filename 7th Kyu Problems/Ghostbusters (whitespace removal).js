@@ -13,10 +13,15 @@ If the building contains no ghosts, return the string:
 "You just wanted my autograph didn't you?"
 */
 
-const ghostBusters = building => {
-    const removed = building.replace(/\s/g, '');
-    return removed === building ? "You just wanted my autograph didn't you?" : removed;
-}
+// initial solution:
+// const ghostBusters = building => {
+//     const removed = building.replace(/\s/g, '');
+//     return removed === building ? "You just wanted my autograph didn't you?" : removed;
+// }
+
+const ghostBusters = building => /\s/.test(building) 
+    ? building.replace(/\s/g, '') 
+    : "You just wanted my autograph didn't you?";
 
 console.log(ghostBusters("Factor y")) // "Factory"
 console.log(ghostBusters("O  f fi ce")) // "Office"
