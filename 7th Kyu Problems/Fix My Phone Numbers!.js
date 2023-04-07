@@ -24,7 +24,7 @@ no whitespace or special characters, else return "Not a phone number".
 const isItANum = str => {
     str = str.replace(/\D/g, '');
     return /^0\d{10}$/.test(str) ? str : 'Not a phone number';
-}
+};
 
 console.log(isItANum("S:)0207ERGQREG88349F82!efRF)")) // "02078834982"
 console.log(isItANum("sjfniebienvr12312312312ehfWh")) // "Not a phone number"
