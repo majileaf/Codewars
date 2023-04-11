@@ -15,9 +15,10 @@ capitalize every word that has length greater than 2, leaving smaller words as t
 Note: you will be provided atleast one word and should take string as input and return string as output.
 */
 
-function dropCap(n) {
+const dropCap = n => n.replace(/\b\w{3,}\b/g, x => x[0].toUpperCase() + x.slice(1).toLowerCase());
 
-}
+// alternatively using destructuring:
+// const dropCap = n => n.replace(/\b(\w)(\w{2,})/g, (_, $1, $2) => $1.toUpperCase() + $2.toLowerCase());
 
 console.log(dropCap('Apple Banana')) // "Apple Banana"
 console.log(dropCap('Apple')) // "Apple"
