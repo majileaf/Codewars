@@ -31,6 +31,10 @@ const partlist = arr => {
     return list;
 }
 
+// alternatively:
+// const partlist = arr =>
+//   arr.slice(1).map((_, i) => [arr.slice(0, ++i).join(' '), arr.slice(i).join(' ')]);
+
 console.log(partlist(["I", "wish", "I", "hadn't", "come"])) // [["I", "wish I hadn't come"], ["I wish", "I hadn't come"], ["I wish I", "hadn't come"], ["I wish I hadn't", "come"]])
 console.log(partlist(["cdIw", "tzIy", "xDu", "rThG"])) // [["cdIw", "tzIy xDu rThG"], ["cdIw tzIy", "xDu rThG"], ["cdIw tzIy xDu", "rThG"]])
 console.log(partlist(["vJQ", "anj", "mQDq", "sOZ"])) // [["vJQ", "anj mQDq sOZ"], ["vJQ anj", "mQDq sOZ"], ["vJQ anj mQDq", "sOZ"]])

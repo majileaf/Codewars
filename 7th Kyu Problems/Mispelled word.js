@@ -14,13 +14,23 @@ In the tests that expect true, the mispelled word will always differ mostly by o
 If the two words are the same, return True.
 */
 
+// initial solution:
+// const mispelled = (word1, word2) => {
+//     const diffLength = Math.abs(word2.length - word1.length);
+//     switch (diffLength) {
+//         case 0: return word1.split('').filter((_, i) => word1[i] !== word2[i]).length <= 1;
+//         case 1: return (word2.length > word1.length) 
+//             ? word2.split(word1).join('').length === 1 
+//             : word1.split(word2).join('').length === 1;
+//         default: return false;
+//     };
+// }
+
 const mispelled = (word1, word2) => {
     const diffLength = Math.abs(word2.length - word1.length);
     switch (diffLength) {
         case 0: return word1.split('').filter((_, i) => word1[i] !== word2[i]).length <= 1;
-        case 1: return (word2.length > word1.length) 
-            ? word2.split(word1).join('').length === 1 
-            : word1.split(word2).join('').length === 1;
+        case 1: return word1.includes(word2) || word2.includes(word1);
         default: return false;
     };
 }
