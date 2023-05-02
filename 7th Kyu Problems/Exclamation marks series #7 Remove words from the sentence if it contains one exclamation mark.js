@@ -3,10 +3,13 @@ Remove words from the sentence if they contain exactly one exclamation mark.
 Words are separated by a single space, without leading/trailing spaces.
 */
 
-function remove (string) {
-  //coding and coding....
-  return '';
-}
+// initial solution: 
+// const remove = string => string
+//     .split(' ')
+//     .filter(e => !e.includes('!') || e.indexOf('!') !== e.lastIndexOf('!'))
+//     .join(' ');
+
+const remove4 = string => string.split(' ').filter(e => e.split('!').length !== 2).join(' ');
 
 console.log(remove("Hi!")) // ""
 console.log(remove("Hi! Hi!")) // ""
