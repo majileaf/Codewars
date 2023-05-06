@@ -22,12 +22,21 @@ getIssuer(5105105105105106) == "Mastercard"
 getIssuer(9111111111111111) == "Unknown"
 */
 
+// const getIssuer = number => {
+//     number = String(number);
+//     if ((number.startsWith(34) || number.startsWith(37)) && number.length === 15) return 'AMEX';
+//     if (number.startsWith(6011) && number.length === 16) return 'Discover';
+//     if ([51, 52, 53, 54, 55].find(e => number.startsWith(e)) && number.length === 16) return 'Mastercard';
+//     if (number.startsWith(4) && (number.length === 13 || number.length === 16)) return 'VISA';
+//     return 'Unknown';
+// }
+
+// alternatively in regex:
 const getIssuer = number => {
-    number = String(number);
-    if ((number.startsWith(34) || number.startsWith(37)) && number.length === 15) return 'AMEX';
-    if (number.startsWith(6011) && number.length === 16) return 'Discover';
-    if ([51, 52, 53, 54, 55].find(e => number.startsWith(e)) && number.length === 16) return 'Mastercard';
-    if (number.startsWith(4) && (number.length === 13 || number.length === 16)) return 'VISA';
+    if (/^3(4|7)\d{13}$/.test(number)) return 'AMEX';
+    if (/^(6011)\d{12}$/.test(number)) return 'Discover';
+    if (/^5(1|2|3|4|5)\d{14}$/.test(number)) return 'Mastercard';
+    if (/^4(\d{12}|\d{15})$/.test(number)) return 'VISA';
     return 'Unknown';
 }
 
