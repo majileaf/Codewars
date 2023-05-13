@@ -23,9 +23,21 @@ bags = 2, cap = 2
 return --> 'Clean'
 */
 
-function crap(x, bags, cap){
+const crap = (x, bags, cap) => {
+    let crap = 0;
 
+    for (const sum of x) {
+        for (const n of sum) {
+            if (n === 'D') return 'Dog!!';
+            if (n === '@') crap++
+        }
+    }
+    return crap < bags * cap ? 'Clean' : 'Cr@p';
 }
+
+// alternatively
+// const crap = (x, bags, cap) =>
+//   `${x}`.includes(`D`) ? `Dog!!` : `${x}`.split(`@`).length > bags * cap ? `Cr@p` : `Clean`;
 
 console.log(crap([['_','_','_','_'], ['_','_','_','@'], ['_','_','@', '_']], 2, 2)) // "Clean"
 console.log(crap([['_','_','_','_'], ['_','_','_','@'], ['_','_','@', '_']], 1, 1)) // "Cr@p"
