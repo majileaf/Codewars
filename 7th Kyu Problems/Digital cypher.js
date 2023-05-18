@@ -37,7 +37,7 @@ Encode("masterpiece",1939);  ==>  [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
 
 const encode2 = (str, n) => {
   n = String(n);
-  return [...str].map((letter, i) => (letter.charCodeAt() - 96) % 27 + +(n[i % n.length]));
+  return [...str].map((letter, i) => letter.charCodeAt() - 96 + +(n[i % n.length]));
 }
 
 console.log(encode("scout",1939)) // [ 20, 12, 18, 30, 21] 
