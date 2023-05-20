@@ -11,9 +11,9 @@ Notice that the last element is always included. All numbers will be greater tha
 
 // initial solution: 
 // const checkRight = (n, arr, i) => arr.slice(i + 1).every(e => n > e);
-// const solve6 = arr => arr.reduce((sum, n, i) => checkRight(n, arr, i) ? [...sum, n] : sum, []);
+// const solve = arr => arr.reduce((sum, n, i) => checkRight(n, arr, i) ? [...sum, n] : sum, []);
 
-const solve6 = arr => arr.filter((n, i) => arr.slice(i + 1).every(e => n > e));
+const solve = arr => arr.filter((n, i) => arr.slice(i + 1).every(e => n > e));
 
 console.log(solve([16,17,14,3,14,5,2])) // [ 17,14,5,2]
 console.log(solve([ 92,52,93,31,89,87,77,105])) // [105]
