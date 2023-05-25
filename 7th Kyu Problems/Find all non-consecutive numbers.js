@@ -24,9 +24,7 @@ ascending order. The numbers could be positive and/or negetive and the gap could
 larger than one.
 */
 
-function allNonConsecutive (arr) {
- 
-}
+const allNonConsecutive = arr => arr.reduce((sum, n, i) => i !== 0 && arr[i] - arr[i - 1] !== 1 ? [...sum, {i, n}] : sum, []);
 
 console.log(allNonConsecutive([1,2,3,4,6,7,8,10])) // [{i: 4, n:6}, {i: 7, n:10}]
 console.log(allNonConsecutive([1,2,3,4,6,7,8,15,16])) // [{i: 4, n:6}, {i: 7, n:15}]
