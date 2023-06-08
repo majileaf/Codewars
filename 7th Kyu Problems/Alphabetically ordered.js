@@ -8,10 +8,10 @@ Examples (input -> output)
 "ant" -> true (all characters are in alphabetical order)
 */
 
-function alphabetic(s) {
-  // Yor code here
-  return false;
-}
+const alphabetic = s => [...s].every((_, i) => i === 0 || s[i - 1].charCodeAt() <= s[i].charCodeAt());
+
+// alternatively: 
+// const alphabetic = s => s === s.split('').sort((a, b) => a.localeCompare(b)).join('')
 
 console.log(alphabetic("asd")) // false
 console.log(alphabetic("codewars")) // false
