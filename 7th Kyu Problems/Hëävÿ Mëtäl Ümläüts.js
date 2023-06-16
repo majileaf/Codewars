@@ -19,9 +19,12 @@ a = ä = \u00e4     e = ë = \u00eb     i = ï = \u00ef
 o = ö = \u00f6     u = ü = \u00fc     y = ÿ = \u00ff
 */
 
-function heavyMetalUmlauts(boringText) {
-    return "";
-}
+const heavyMetalUmlauts = boringText =>  boringText.replace(/[AEIOUYaeiouy]/g, char => ({
+    'A': '\u00c4', 'E': '\u00cb', 'I': '\u00cf',
+    'O': '\u00d6', 'U': '\u00dc', 'Y': '\u0178',
+    'a': '\u00e4', 'e': '\u00eb', 'i': '\u00ef',
+    'o': '\u00f6', 'u': '\u00fc', 'y': '\u00ff'
+})[char]);
 
 console.log(heavyMetalUmlauts("Announcing the Macbook Air Guitar")) // "Ännöüncïng thë Mäcböök Äïr Güïtär"
 console.log(heavyMetalUmlauts("Facebook introduces new heavy metal reaction buttons")) // "Fäcëböök ïntrödücës nëw hëävÿ mëtäl rëäctïön büttöns"
