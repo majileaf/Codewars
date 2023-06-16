@@ -18,8 +18,14 @@ Examples:
 */
 
 const complete = str =>{
-
+    let palindrome = '';
+    for (let i = 0; i <= str.length; i++) {
+        palindrome = str + [...str.slice(0, i + 1)].reverse().join('');
+        if (checkPalindrome(palindrome)) return palindrome;
+    }
 } 
+
+const checkPalindrome = str => str === str.split('').reverse().join('');
 
 console.log(complete("Baa")) // "BaaB"
 console.log(complete("aaB")) // "aaBaa"
