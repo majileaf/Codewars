@@ -31,8 +31,14 @@ output: ". .... ... .... .... ...."
 "more"    -> "... .. ... .... .... .. . ....."
 */
 
-function tapCodeTranslation(text) {
-  return "";
+const tapCodeTranslation = text => [...text].map(e => '.'.repeat(findCoord(e)[0]) + ' ' + '.'.repeat(findCoord(e)[1])).join(' ');
+
+const findCoord = char => {
+    if (char === 'k') char = 'c';
+    let n = (char.charCodeAt() - 97 - (char > 'k')) % 5 + 1;
+    let m = Math.ceil((char.charCodeAt() - 96 - (char > 'k')) / 5);
+    
+    return [m, n];
 }
 
 console.log(tapCodeTranslation("test")) // ".... .... . ..... .... ... .... ...."
