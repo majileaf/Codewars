@@ -22,9 +22,26 @@ new_value: 'o'
 As you can see in the example: The first changed is the 2nd 'a'. So the start is always at the nth suitable char and not at the first!
 */
 
-function replaceNth(text, n, oldValue, newValue) {
-  
+const replaceNth = (text, n, oldValue, newValue) => {
+    if (n <= 0) return text;
+
+    text = [...text];
+    for (let i = 0, count = 0; i < text.length; i++) {
+        if (text[i] === oldValue && ++count % n === 0) text[i] = newValue;
+    }
+ 
+    return text.join('');
 }
+
+// alternatively #1:
+// const replaceNth = (text, n, oldValue, newValue) => (n <= 0) 
+//         ? text 
+//         : [...text].reduce(([sum, count], curr) => (curr === oldValue && ++count % n === 0) ? [[...sum, newValue], count] : [[...sum, curr], count], [[], 0])[0].join('');
+
+// alternatively #2 using regex:
+// const replaceNth = (text, n, oldValue, newValue, count = 0) => n < 1 
+//     ? text 
+//     : text.replace(new RegExp(oldValue, 'g'), char => ++count % n ? char : newValue);
 
 console.log(replaceNth("Vader said: No, I am your father!", 2, 'a', 'o')) // "Vader soid: No, I am your fother!"
 console.log(replaceNth("Vader said: No, I am your father!", 4, 'a', 'o')) // "Vader said: No, I am your fother!"
