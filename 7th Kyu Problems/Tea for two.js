@@ -11,9 +11,7 @@ tea42(5676765) //should return '5676765'
 tea42('2u2u') //should return 'tutu'
 */
 
-function tea42(input) {
-  // your code
-};
+const tea42 = input => String(input).replace(/2/g, 't');
 
 console.log(tea42(2)) // 't'
 console.log(tea42('2')) // 't'
