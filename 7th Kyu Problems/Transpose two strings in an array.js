@@ -18,9 +18,7 @@ You don't have to modify the case (i.e. no need to change to upper or lower)
 If one string is longer than the other, there should be a space where the character would be
 */
 
-function transposeTwoStrings (array) {
-	return '';
-}
+const transposeTwoStrings = array => [...Array(Math.max(array[0].length, array[1].length))].map((_, i) => (array[0][i] || ' ') + ' ' + (array[1][i] || ' ')).join('\n')
 
 console.log(transposeTwoStrings(['Hello', 'World'])) // "H W\ne o\nl r\nl l\no d"
 console.log(transposeTwoStrings(['joey', 'louise'])) // "j l\no o\ne u\ny i\n  s\n  e"
