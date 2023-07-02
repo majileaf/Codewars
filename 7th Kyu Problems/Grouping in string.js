@@ -12,8 +12,14 @@ In first example same elements are grouped together: (11)(22)(33), hence it shou
 In the second example there are two different groups of 1's: (11)2233(11), hence it should return false
 */
 
-const isConsecutive = (str) => {
-//Let's do it...
+const isConsecutive = str => {
+    let obj = {}
+
+    for (let i = 0; i < str.length; i++) {
+        if (!obj[str[i]]) obj[str[i]] = true;
+        else if (str[i] !== str[i - 1]) return false;
+    }
+    return true;
 }
 
 console.log(isConsecutive("112200")) // true
