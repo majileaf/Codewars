@@ -44,8 +44,17 @@ straight vertical of horizontal line, return "Calm before the storm".
 Lines of scent cannot pass through the baby (or if they do they dont count).
 */
 
-function pooRoulette(p) {
-
+const pooRoulette = p => {
+    for (let i = 0; i < p.length; i++) {
+        for (let j = 0; j < p[i].length; j++) {
+            if (p[i][j] === 'B') {
+                if (i - 3 >= 0 && p[i - 1][j] +  p[i - 2][j] + p[i - 3][j] === '~~~') return 'Get the wipes!';
+                if (j - 3 >= 0 && p[i][j - 1] + p[i][j - 2] + p[i][j - 3] === '~~~') return 'You disgust me!';
+                if (j + 3 < p[i].length && p[i][j + 1] + p[i][j + 2] + p[i][j + 3] === '~~~') return 'You disgust me!';
+            }
+        }
+    }
+    return 'Calm before the storm';
 }
 
 console.log(pooRoulette([
