@@ -29,7 +29,7 @@ The number of 'i's in the output must be >= 1
 All the inputs are valid.
 */
 
-const madShout = sidewalk => `O${'i'.repeat(Math.ceil((sidewalk.indexOf('F') - sidewalk.indexOf('Y')) / 2) || 1)} F!`;
+const madShout = sidewalk => `O${'i'.repeat(Math.ceil((sidewalk.indexOf('F') - sidewalk.indexOf('Y')) / 2))} F!`;
 
 console.log(madShout('-----------------Y--------F--------------')) // 'Oiiiii F!'
 console.log(madShout('------------Y-F------------------')) // 'Oi F!'
