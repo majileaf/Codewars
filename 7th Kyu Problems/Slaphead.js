@@ -25,11 +25,13 @@ const bald = x => {
 }
 
 const phrase = n => {
-    switch (true) {
-        case (n === 0): return 'Clean!';
-        case (n === 1): return 'Unicorn!';
-        case (n === 2): return 'Homer!';
-        case (n >= 3 && n <= 5): return 'Careless!';
+    switch (n) {
+        case 0: return 'Clean!';
+        case 1: return 'Unicorn!';
+        case 2: return 'Homer!';
+        case 3:
+        case 4: 
+        case 5: return 'Careless!';
         case (n > 5): 'Hobo!';
     }
 }
