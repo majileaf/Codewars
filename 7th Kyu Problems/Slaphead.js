@@ -19,10 +19,7 @@ So for this head: "------/------" you shoud return:
 ["-------------", "Unicorn"]
 */
 
-const bald = x => {
-    const count = x.split('/').length;
-    return ['-'.repeat(x.length), phrase(count)];
-}
+const bald = x => ['-'.repeat(x.length), phrase(x.split('/').length - 1)];
 
 const phrase = n => {
     switch (n) {
@@ -32,7 +29,7 @@ const phrase = n => {
         case 3:
         case 4: 
         case 5: return 'Careless!';
-        case (n > 5): 'Hobo!';
+        default: return 'Hobo!';
     }
 }
 
