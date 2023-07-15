@@ -21,9 +21,19 @@ fridge to return true. Multiple pillows on fridges should return true also.
 100 random tests
 */
 
-function pillow(s){
+// initial solution:
+// const pillow = s => {
+//     for (let i = 0; i < s[0].length; i++) {
+//         if (s[0][i] === 'n' && s[1][i] === 'B') return true;
+//     }
+//     return false;
+// }
 
-}
+// alternatively:
+// const pillow = s => [...s[0]].some((_, i) => s[0][i] === 'n' && s[1][i] === 'B');
+
+// alternative #2:
+const pillow = ([a, b]) => [...a].some((_, i) => a[i] === 'n' && b[i] === 'B');
 
 console.log(pillow(['EvH/KNikBiyxfeyK/miCMj', 'I/HwjnHlFLlahMOKNadps'])) // false
 console.log(pillow(['\\DjQ\\[zv]SpG]Z/[Qm\\eLL', 'amwZArsaGRmibriXBgTRZp'])) // false
