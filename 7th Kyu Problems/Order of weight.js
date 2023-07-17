@@ -25,7 +25,7 @@ Arrays will always contain correct and positive values aswell as uppercase lette
 
 // improving #2
 const arrange = arr => arr.sort((a, b) => convert(a) - convert(b));
-const convert = str => +str.replace(/KG|T|G/g, char => ({'T': '000000', 'KG': '000', 'G': ''})[char]);
+const convert = str => +str.replace(/T|KG|G/g, char => ({'T': '000000', 'KG': '000', 'G': ''})[char]);
 
 console.log(arrange(["200G","300G","150G","100KG"])) // ["150G","200G","300G","100KG"]
 console.log(arrange(["400G","100T","150KG","100G"])) // ["100G","400G","150KG","100T"]
