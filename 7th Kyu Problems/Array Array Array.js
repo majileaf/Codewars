@@ -18,7 +18,7 @@ const explode = ([x, y]) => {
     if (!checkX && !checkY) return  'Void!';
     const score = checkX && checkY ? x + y : checkX ? x : y;
 
-    return [...Array(score)].fill([x, y]);
+    return Array(score).fill([x, y]);
 }
 
 console.log(explode([9, 3])) // [[9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3]]
