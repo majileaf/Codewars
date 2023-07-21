@@ -11,8 +11,14 @@ For example:
 if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
 */
 
-function explode(x){
+const explode = ([x, y]) => {
+    const checkX = typeof x === 'number';
+    const checkY = typeof y === 'number';
 
+    if (!checkX && !checkY) return  'Void!';
+    const score = checkX && checkY ? x + y : checkX ? x : y;
+
+    return [...Array(score)].fill([x, y]);
 }
 
 console.log(explode([9, 3])) // [[9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3], [9, 3]]
