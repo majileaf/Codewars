@@ -17,7 +17,7 @@ Notes:
 You will always be given an array with at least 1 string to check.
 */
 
-const authList = arr => arr.every(e => (/^(?=.*?[a-z])(?=.*?[\d])[a-z\d]{6,10}$/).test(e));
+const authList = arr => arr.every(e => (/^(?=.*[a-z])(?=.*[\d])[a-z\d]{6,10}$/).test(e));
 
 console.log(authList(['john123', 'alex222', 'sandra1'])) // true
 console.log(authList(['john123', 'alex222', 'sandraW'])) // false
