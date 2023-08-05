@@ -16,7 +16,15 @@ follow the order of the first occurence of each word in s2.
 If they are saying nothing in common, kill both samurai and blame a ninja. (output "death")
 */
 
-const commonGround = (s1, s2) => s2.split(' ').filter(e => s1.includes(e)).join(' ') || 'death';
+// initial solution:
+// const commonGround = (s1, s2) => s2.split(' ').filter(e => s1.includes(e)).join(' ') || 'death';
+
+const commonGround = (s1, s2) => {
+    const hashS1 = s1.split(' ').reduce((sum, n) => (sum[n] = true, sum), {});
+    const common = s2.split(' ').filter(e => hashS1[e]);
+
+    return common.length > 0 ? common.join(' ') : 'death';
+}
 
 console.log(commonGround("eat chicken", "eat chicken and rice")) // 'eat chicken'
 console.log(commonGround("eat a burger and drink a coke", "drink a coke")) // 'drink a coke'
