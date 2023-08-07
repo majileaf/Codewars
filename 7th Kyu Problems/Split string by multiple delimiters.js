@@ -10,8 +10,43 @@ List of delimiters is optional and can be empty, so take that into account.
 Important note: Result cannot contain empty string.
 */
 
-function multipleSplit(string, delimiters=[]){
-  "Your function goes here!"
+// initial solution:
+// const multipleSplit = (string, delimiters) => {
+//   if (delimiters === undefined && string === '') return [];
+//   else if (delimiters === undefined) return [string];
+//   else if (delimiters.length === 0) return [];
+
+//   let arr = [];
+//   let str = '';
+
+//   for (let i = 0; i < string.length; i++) {
+//       if (string[i] !== undefined && !delimiters.includes(string[i])) {
+//           str += string[i];
+//       } else {
+//           if (str !== '') arr.push(str);
+//           str = '';
+//       }
+//   }
+//   if (str !== '') arr.push(str);
+
+//   return arr;
+// }
+
+const multipleSplit = (string, delimiters = []) => {
+  const arr = [];
+  let str = '';
+
+  for (let i = 0; i < string.length; i++) {
+      if (!delimiters.includes(string[i])) {
+          str += string[i];
+      } else {
+          str && arr.push(str);
+          str = '';
+      }
+  }
+  str && arr.push(str);
+
+  return arr;
 }
 
 console.log(multipleSplit('Hi everybody!', [' ', '!'])) // ['Hi', 'everybody']
