@@ -22,9 +22,13 @@ Names may be hyphenated or two words e.g. Blue Ivy or Jean-Paul
 Names will not include any other characters apart from letters, hyphens or spaces.
 */
 
-function validName(array){
-// enter code here
-} 
+const validName = array => {
+    if (array.length === 0) return 'You must test at least one name.';
+    else if (array.length === 1) return 'Congratulations, you can choose any name you like!';
+    return array.slice(1).every((e, i) => array[i].endsWith(e[0].toLowerCase())) 
+        ? 'Congratulations, your baby names are compatible!'
+        : 'Back to the drawing board, your baby names are not compatible.';
+}  
 
 console.log(validName(["Cruz", "Zuma"])) // "Congratulations, your baby names are compatible!"
 console.log(validName(["Buddy Bear","Romeo", "Olive"])) // "Congratulations, your baby names are compatible!"
