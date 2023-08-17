@@ -18,8 +18,10 @@ End ---> |~~~~~XX~2~~~~~|
 All inputs will be correct type and never empty.
 */
 
-function duckShoot(ammo, aim, ducks){
-
+const duckShoot = (ammo, aim, ducks) => {
+    const shots = Math.floor(ammo * aim);
+    let i = 0;
+    return ducks.replace(/2/g, duck => i++ < shots ? 'X' : duck);
 }
 
 console.log(duckShoot(4, 0.64, '|~~2~~~22~2~~22~2~~~~2~~~|')) // '|~~X~~~X2~2~~22~2~~~~2~~~|'
