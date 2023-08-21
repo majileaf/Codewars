@@ -38,8 +38,7 @@ const translateFrame = arr => [...arr].map(e => codons[e]).join('');
 //   }
 //   return true;
 // }
-
-const getFrame = dna => dna.match(/.{3}/g);
+// const getFrame = dna => dna.match(/.{3}/g);
 
 console.log(codeForSameProtein("ATGTCGTCAATTTAA","ATGTCGTCAATTTAA")) // true
 console.log(codeForSameProtein("ATGTTTTAA","ATGTTCTAA")) // true
