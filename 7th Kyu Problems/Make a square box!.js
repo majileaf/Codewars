@@ -20,9 +20,10 @@ n = 3
 ]
 */
 
-function box(){
-  //your code here
-}
+const box = n => ['-'.repeat(n), ...[...Array(n - 2)].map(e => '-' + ' '.repeat(n - 2) + '-'), '-'.repeat(n)];
+
+// alternatively:
+// const box = n => ['-'.repeat(n), ...Array(n - 2).fill('-' + ' '.repeat(n - 2) + '-'), '-'.repeat(n)];
 
 console.log(box(5)) // ["-----", "-   -", "-   -", "-   -", "-----"]
 console.log(box(2)) // ["--", "--"]
