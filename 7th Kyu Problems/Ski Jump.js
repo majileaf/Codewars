@@ -30,8 +30,13 @@ To give an example, the above mountain would look as follows in most cases:
 Not as much fun, eh?
 */
 
-function skiJump(mountain){
-
+const skiJump = mountain => {
+    const jumpLength = (mountain.length ** 2 * 1.35).toFixed(2);
+    const text = jumpLength < 10 ? "He's crap!" :
+                 jumpLength < 25 ? "He's ok!" :
+                 jumpLength < 50 ? "He's flying!" :
+                 "Gold!!";
+    return `${jumpLength} metres: ` + text;
 }
 
 console.log(skiJump(['*'])) // '1.35 metres: He\'s crap!'
