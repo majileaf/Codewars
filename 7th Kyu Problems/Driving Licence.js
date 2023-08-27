@@ -52,7 +52,7 @@ const driver = data => {
   const d14 = '9';
   const d1516 = 'AA';
   
-  return d12345 + d6 + d78 + d910 + d11 + d1213 + d14 + d15;
+  return d12345 + d6 + d78 + d910 + d11 + d1213 + d14 + d1516;
 }
 
 console.log(driver(["John","James","Smith","01-Jan-2000","M"])) // "SMITH001010JJ9AA"
