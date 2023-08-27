@@ -50,7 +50,7 @@ const driver = data => {
   const d11 = year.toString()[3];
   const d1213 = data[0][0] + (data[1][0] || '9');
   const d14 = '9';
-  const d15 = 'AA';
+  const d1516 = 'AA';
   
   return d12345 + d6 + d78 + d910 + d11 + d1213 + d14 + d15;
 }
