@@ -28,6 +28,13 @@ const firstTooth = t => {
     return diff.indexOf(maxDiff) === diff.lastIndexOf(maxDiff) ? diff.indexOf(maxDiff) : -1;
 }
 
+// alternatively:
+// const firstTooth = t => {
+//     const diff = t.map((_, i) => ((t[i] - t[i - 1]) || 0) + ((t[i] - t[i + 1]) || 0));
+//     const maxDiff = Math.max(...diff);
+//     return diff.indexOf(maxDiff) === diff.lastIndexOf(maxDiff) ? diff.indexOf(maxDiff) : -1;
+// }
+
 console.log(firstTooth([1, 2, 3, 4])) // 3
 console.log(firstTooth([1, 2, 6, 4])) // 2
 console.log(firstTooth([1, 2, 5, 7, 1, 0, 9])) // 6
