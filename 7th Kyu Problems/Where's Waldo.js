@@ -40,11 +40,18 @@ Hints
 - why is there more than one bird in the first example ...
 */
 
+// initial solution:
+// const findWaldo = crowd => {
+//   const str = crowd.join('');
+//   const count = [...str].reduce((sum, n) => (sum[n] = (sum[n] || 0) + 1, sum), {});
+//   const waldo = Object.keys(count).find(e => count[e] === 1);
+//   const waldoIdx = str.indexOf(waldo);
+//   return [Math.floor(waldoIdx / crowd[0].length) , waldoIdx % crowd[0].length];
+// }
+
 const findWaldo = crowd => {
   const str = crowd.join('');
-  const count = [...str].reduce((sum, n) => (sum[n] = (sum[n] || 0) + 1, sum), {});
-  const waldo = Object.keys(count).find(e => count[e] === 1);
-  const waldoIdx = str.indexOf(waldo);
+  const waldoIdx = [...str].findIndex(e => str.indexOf(e) === str.lastIndexOf(e));
   return [Math.floor(waldoIdx / crowd[0].length) , waldoIdx % crowd[0].length];
 }
 
