@@ -40,34 +40,109 @@ Hints
 - why is there more than one bird in the first example ...
 */
 
-function findWaldo(crowd) {
-  // Return y (row) and x (column) coordinates of Waldo ([0,0] is top-left)
-  const y = 0, x = 0;
-  return [y, x];
+const findWaldo = crowd => {
+  const str = crowd.join('');
+  const count = [...str].reduce((sum, n) => (sum[n] = (sum[n] || 0) + 1, sum), {});
+  const waldo = Object.keys(count).find(e => count[e] === 1);
+  const waldoIdx = str.indexOf(waldo);
+  return [Math.floor(waldoIdx / crowd[0].length) , waldoIdx % crowd[0].length];
 }
 
-// 'Should find Waldo at the beach' [7, 3]
-    let crowd = [
-    "             ",           // Air
-    "         w   ",           // Air with a bird
-    "   w         ",           // Air with a bird
-    "~~~~~~~~~~~~~",           // Sea
-    ".~..~~.~~~..~",           // Waves on beach
-    "...P......P..",           // Beach with some people
-    "......P..P...",           // Beach with some people
-    "..PW........."            // Beach with Waldo and presumably a friend next to him
-    ];
+console.log('---');
 
+// 'Should find Waldo at the beach' [7, 3] - 'W'
+let crowd = [
+"             ",           // Air
+"         w   ",           // Air with a bird
+"   w         ",           // Air with a bird
+"~~~~~~~~~~~~~",           // Sea
+".~..~~.~~~..~",           // Waves on beach
+"...P......P..",           // Beach with some people
+"......P..P...",           // Beach with some people
+"..PW........."            // Beach with Waldo and presumably a friend next to him
+];
 console.log(findWaldo(crowd));
 
-// 'Should find Waldo at the pyramid' [5, 2]
-    crowd = [
-    "                              ",           // Air
-    "                              ",           // Air
-    "            _                 ",           // Top of pyramid
-    "          _____               ",           // Layer of pyramid
-    "        _________             ",           // Layer of pyramid
-    "  B  _______________   G   GG "            // Ground layer of pyramid with several people, including Waldo
-    ];
+// 'Should find Waldo at the pyramid' [5, 2] - 'B'
+crowd = [
+"                              ",           // Air
+"                              ",           // Air
+"            _                 ",           // Top of pyramid
+"          _____               ",           // Layer of pyramid
+"        _________             ",           // Layer of pyramid
+"  B  _______________   G   GG "            // Ground layer of pyramid with several people, including Waldo
+];
+console.log(findWaldo(crowd));
 
+// 'Should find Waldo at the beach' - reloaded [5, 6] - 'K'
+crowd = [
+'   W         ',
+'         w   ',
+'   w    W    ',
+'~~~~~~~~~~~~~',
+'....~~...~..~',
+'.A.P..K.e.P.F',
+'..#.FfeP.kPk.',
+'..Pf..f.fAA#.'
+]
+console.log(findWaldo(crowd));
+
+// 'Should find Waldo at the beach' - reloaded [6, 9] - 'X'
+crowd = [
+  '     w       ',
+  '           w ',
+  '            w',
+  '~~~~~~~~~~~~~',
+  '~~~.~~~~~~~.~',
+  'A...q..AAA.T.',
+  '...o.q.ooX.TT',
+  'oAA.oq.A..qTo'
+]
+console.log(findWaldo(crowd));
+
+// 'Should find Waldo at the beach' - reloaded [7, 0] - 'Z'
+crowd = [
+'  W        W', 
+'W           ',
+'    W       ', 
+'           W',
+'            ', 
+'~~~~~~~~~~~~',
+'~~.....~~~.~', 
+'Z.......O...',
+'gg........v.', 
+'.O.......gv.',
+'.O...Og.....', 
+'O....v.....O'
+]
+console.log(findWaldo(crowd));
+
+// 'Should find Waldo at the beach' - reloaded [8, 17] - 't'
+crowd = [
+' W      W W W  W         ',
+'W          W    w  w W  w',
+'        w       w        ',
+'w     W   W     W   W   w',
+'       ww w   w    W    W',
+'  W     W  w W           ',
+'~~~~~~~~~~~~~~~~~~~~~~~~~',
+'~..~~~~~~~~~~~.~..~~.~..~',
+'e......Sdj.....e.tj..d..d',
+'..S.eS....b...bL..L.L....',
+'...VjSLe.....j.e.j.....b.',
+'b...bdS.S..b...bj..eVe...'
+]
+console.log(findWaldo(crowd));
+
+// 'Should find Waldo at the beach' - reloaded [5, 27] - 'd'
+crowd = [
+' W              w            w          ',
+' w W    W W                W        W   ',
+'    W                                   ',
+'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~',
+'..~~.~.~~~~..~~~.~~.~.~~~.~~.~~.~~.~~~~~',
+'H....OOOOyHH.OO.OH.O...H..yd.y..Gy.OHyHH',
+'H.O.GGyHG.Hyy.OGOGG.G..yy...O....H..G.OO',
+'G..GOG..y.H..G.yy.yHGyO......yH.OGGO..Gy'
+]
 console.log(findWaldo(crowd));
