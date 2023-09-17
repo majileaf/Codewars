@@ -31,14 +31,20 @@ Order of the objects in the array should be maintained but order of the properti
 // initial solution: 
 // const addUsername = list => {
 //     const date = new Date();
-//     list.forEach(e => {e['username'] = `${e.firstName}${e.lastName[0]}${date.getFullYear() - e.age}`.toLowerCase()});
+//     list.forEach(e => e.username = `${e.firstName}${e.lastName[0]}${date.getFullYear() - e.age}`.toLowerCase());
 //     return list;
 // }
 
 const addUsername = list => {
-  list.map(e => {e.username = `${e.firstName}${e.lastName[0]}${new Date().getFullYear() - e.age}`.toLowerCase()});
+  list.map(e => e.username = `${e.firstName}${e.lastName[0]}${new Date().getFullYear() - e.age}`.toLowerCase());
   return list;
 }
+
+// alterantively #1:
+// const addUsername = list => list.map(e => (e.username = `${e.firstName}${e.lastName[0]}${new Date().getFullYear() - e.age}`.toLowerCase(), e));
+
+// alternatively #2:
+// const addUsername = list => list.forEach(e => e.username = `${e.firstName}${e.lastName[0]}${new Date().getFullYear() - e.age}`.toLowerCase()) || list;
 
 list1 = [
   { firstName: 'Emily', lastName: 'N.', country: 'Ireland', continent: 'Europe', age: 30, language: 'Ruby' },
