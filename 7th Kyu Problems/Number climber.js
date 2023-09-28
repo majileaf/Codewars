@@ -13,8 +13,16 @@ Try generating the elements of the resulting list in ascending order, i.e.,
 without resorting to a list reversal or prependig the elements to a list.
 */
 
-function climb(n){
-  // ...
+const climb = n => {
+  const arr = [n];
+  
+  while (n > 1) {
+      n = n % 2 
+          ? n = (n - 1) / 2
+          : n = n / 2;
+      arr.push(n);
+  }
+  return arr.reverse();
 }
 
 console.log(climb(1)) // [1]
