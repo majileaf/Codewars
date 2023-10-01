@@ -28,8 +28,15 @@ in the center (see example #1).
 Any number which is zero-padded counts as a single digit (see example #2).
 */
 
-function closingInSum(n) {
-
+const closingInSum = n => {
+    n = [...String(n)];
+    let sum = 0;
+    if (n.length % 2 !== 0) n.splice(Math.floor(n.length / 2), 0, '0');
+    
+    for (let i = 0; i < (n.length / 2); i++) {
+        sum += Number(n[i] + n[n.length - 1 - i]);
+    }
+    return sum;
 }
 
 console.log(closingInSum(121n)) // 13
