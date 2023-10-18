@@ -23,6 +23,14 @@ const toDayOfYear = arr => {
   return day + daysFromMonths;
 }
 
+// alternatively:
+// const toDayOfYear = arr => {
+//   let [day, month, year] = arr;
+//   for (let i = 1; i < month; i++)
+//       day += new Date(year, i, 0).getDate();
+//   return day;
+// }
+
 console.log(toDayOfYear([25, 12, 2017])) // 359,
 console.log(toDayOfYear([31, 10, 1991])) // 304
 console.log(toDayOfYear([1, 5, 3000])) // 121
