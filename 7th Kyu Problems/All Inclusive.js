@@ -22,9 +22,20 @@ and for any array arr: contain_all_rots("", arr) --> true
 Ref: https://en.wikipedia.org/wiki/String_(computer_science)#Rotations
 */
 
-function containAllRots(strng, arr) {
-    // your code
-}
+// initial solution:
+// const containAllRots = (strng, arr) => strng ? createRot(strng).every(e => arr.includes(e)) : true;
+// const createRot = str => {
+//     let arr = [str];
+//     str = [...str];
+
+//     for (let i = 0; i < str.length - 1; i++) {
+//         str.push(str.shift());
+//         arr.push(str.join(''));
+//     }
+//     return arr;
+// }
+
+const containAllRots = (strng, arr) => [...strng].map((_, i) => strng.slice(i) + strng.slice(0, i)).every(e => arr.includes(e));
 
 console.log(containAllRots("", [])) // true
 console.log(containAllRots("", ["bsjq", "qbsj"])) // true
