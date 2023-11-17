@@ -12,9 +12,25 @@ one([1, 3, 5, 6, 99, 88, 3], bigger_than_ten) -> false
 one([1, 3, 5, 6, 5, 1, 3], bigger_than_ten) -> false
 */
 
-function one(arr, fun){
-  // ...
-}
+const one = (arr, fun) => arr.filter(fun).length === 1;
+
+// alternative #1:
+// const one1 = (arr, fun) => {
+//   const first = arr.indexOf(arr.find(fun));
+//   if (first < 0) return false;
+//   return arr.slice(first + 1).find(fun) === undefined;
+// }
+
+// alternative #2:
+// const one1 = (arr, fun) => {
+//   let found = false;
+//   for (let i = 0; i < arr.length; i++) {
+//       if (fun(arr[i])) {
+//           if (found) { return false; } 
+//           found = true;
+//       }
+//   }
+// }
 
 console.log(one([1,2,3,4,5], function(item){ return item<2})) // true
 console.log(one([1,2,3,4,5], function(item){ return item%2 })) // false
