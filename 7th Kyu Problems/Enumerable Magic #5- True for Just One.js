@@ -24,12 +24,14 @@ const one = (arr, fun) => arr.filter(fun).length === 1;
 // alternative #2:
 // const one1 = (arr, fun) => {
 //   let found = false;
+
 //   for (let i = 0; i < arr.length; i++) {
 //       if (fun(arr[i])) {
 //           if (found) { return false; } 
 //           found = true;
 //       }
 //   }
+//   return found;
 // }
 
 console.log(one([1,2,3,4,5], function(item){ return item<2})) // true
