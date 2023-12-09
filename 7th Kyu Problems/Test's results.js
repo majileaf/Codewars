@@ -14,8 +14,23 @@ Examples
 [5, 6, 4, 8, 9, 8, 9, 10, 10, 10] ==> [7.9, {'h': 5, 'a': 2, 'l': 3}]
 */
 
-function testResult(array) {
-  // your code
+const testResult = array => {
+  const countMarks = array.reduce((sum, n) => (sum[marks(n)] = (sum[marks(n)] || 0) + 1, sum), {h : 0, a : 0, l : 0});
+  const averageScore = +(array.reduce((sum, n) => sum + n, 0) / array.length).toFixed(3);
+  const arr = [averageScore, countMarks];
+  if (countMarks['a'] === 0 && countMarks['l'] === 0) arr.push('They did well');
+  
+  return arr
+}
+
+const marks = n => {
+  switch(n) {
+      case 10:
+      case 9: return 'h';
+      case 8:
+      case 7: return 'a';
+      default: return 'l';
+  }
 }
 
 console.log(testResult([10,9,9,10,9,10,9])) // [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They did well']
