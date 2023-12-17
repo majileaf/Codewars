@@ -20,7 +20,7 @@ inputs        outputs
 [0,1,0] ->    [0]
 */
 
-const completeSeries = arr => [...new Set(arr)].length < arr.length 
+const completeSeries = arr => new Set(arr).size < arr.length 
     ? [0] 
     : [...Array(Math.max(...arr) + 1)].map((_, i) => i);
 
