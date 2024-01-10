@@ -151,7 +151,6 @@ That is to say, any one of them is the correct answer.
 
 const topSecret = str => decryptTop(str);
 
-const encryptTop = string => String.fromCharCode(...string.split('').map(e => /[A-Za-z]/.test(e) ? (e.charCodeAt() - 65 + 3) % 26 + 65 : e));
 const decryptTop = string => {
     const leftshift = 3;
     return String.fromCharCode(...string.split('').map(e => 
