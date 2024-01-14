@@ -149,6 +149,17 @@ const threeInOne = arr => {
   return newArr;
 }
 
+// alternatively:
+// const threeInOne = arr => {
+//   const copyArr = arr.slice();
+//   const newArr = [];
+
+//   for (let i = 0; i < arr.length / 3; i++) {
+//       newArr.push(copyArr.splice(0, 3).reduce((sum, n) => sum + n, 0));
+//   }
+//   return newArr;
+// }
+
 console.log(threeInOne([1,2,3])) // [6]
 console.log(threeInOne([1,2,3,4,5,6])) // [6,15]
 console.log(threeInOne([1,2,3,4,5,6,7,8,9])) // [6,15,24]
