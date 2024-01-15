@@ -74,27 +74,21 @@ infiniteLoop( [[1,2,3],[4,5,6],[7,8,9]],"right",1) should return [[9,1,2],[3,4,5
 infiniteLoop( [[1,2],[3,4,5,6],[7,8,9,10]],"left",2) should return [[3,4],[5,6,7,8],[9,10,1,2]]
 */
 
+// const flatten = arr => arr.reduce((sum, n) => sum.concat(Array.isArray(n) ? flatten(n) : n), []);
+const flatten = arr => arr.flat(Infinity);
+
 const infiniteLoop = (arr, d, n) => {
-  const arrPos = [];
-  for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < arr[i].length; j++) {
-          arrPos.push([i, j]);
-      }
-  }
+    const flatArr = flatten(arr);
+    const shift = (d === 'right' ? -n : n);
+    let idx = 0;
 
-  const newArr = arr.map(e => e.slice());
-  const shift = (d === 'right' ? -n : n);
-  let arrPosIdx = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < arr[i].length; j++) {
-          let findIdx = (arrPos.length + arrPosIdx + shift % arrPos.length) % arrPos.length;
-          let [a, b] = arrPos[findIdx];
-          newArr[i][j] = arr[a][b];
-          arrPosIdx++;
-      }
-  }
-  return newArr;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            arr[i][j] = flatArr[(flatArr.length + idx + shift % flatArr.length) % flatArr.length];
+            idx++;
+        }
+    }
+    return arr;
 }
 
 console.log(infiniteLoop([[1,2,3],[4,5,6],[7,8,9]],"left",1)) // [[2,3,4],[5,6,7],[8,9,1]]
