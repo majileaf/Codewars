@@ -66,8 +66,9 @@ maxMin([1,10,100,1000],[0,0,0,0])     should return [1000,1]
 maxMin([10,20,30,40],[111,11,1,-111]) should return [151,9]
 */
 
-function maxMin(arr1,arr2){
-  //coding here... 
+const maxMin = (arr1, arr2) => {
+  const arrAbs = arr1.map((_, i) => Math.abs(arr1[i] - arr2[i]));
+  return [Math.max(...arrAbs), Math.min(...arrAbs)];
 }
 
 console.log(maxMin([1,3,5],[9,8,7])) // [8,2]
