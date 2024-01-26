@@ -25,6 +25,12 @@ const whatListAmIOn = actions => {
   return count > 0 ? 'nice' : 'naughty';
 }
 
+// alternatively:
+// const whatListAmIOn = actions => {
+//   const count = actions.reduce((sum, n) => sum + /^[gsn]/.test(n) - /^[bfk]/.test(n), 0);
+//   return count > 0 ? 'nice' : 'naughty';
+// }
+
 console.log(whatListAmIOn(["broke someone's window", "fought over a toaster", "killed a bug"])) // "naughty"
 console.log(whatListAmIOn(["got someone a new car", "saved a man from drowning", "never got into a fight"])) // "nice"
 console.log(whatListAmIOn(["broke a vending machine", "never got into a fight", "tied someone's shoes"])) // "naughty"
