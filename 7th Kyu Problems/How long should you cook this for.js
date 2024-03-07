@@ -30,8 +30,9 @@ Note: the result should be rounded up.
 59.2 sec  -->  60 sec  -->  return "1 minutes 0 seconds"
 */
 
-function cookingTime(neededPower, minutes, seconds, power) {
-  // Your code here
+const cookingTime = (neededPower, minutes, seconds, power) => {
+  const result = Math.ceil((minutes * 60 + seconds) * parseInt(neededPower) / parseInt(power));
+  return `${Math.floor(result / 60)} minutes ${result % 60} seconds`;
 }
 
 console.log(cookingTime("600W", 4, 20, "800W")) // "3 minutes 15 seconds"
