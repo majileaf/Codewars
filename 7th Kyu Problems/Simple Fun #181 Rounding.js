@@ -26,7 +26,7 @@ const rounding = (n, m) => {
 }
 
 // alternatively:
-// const rounding = (n, m) => n / m === 0.5 ? n : Math.round(n / m) * m;
+// const rounding = (n, m) => (n / m) % 1 === 0.5 ? n : Math.round(n / m) * m;
 
 console.log(rounding(20,3)) // 21
 console.log(rounding(19,3)) // 18
