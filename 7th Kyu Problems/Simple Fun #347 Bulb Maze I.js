@@ -59,6 +59,9 @@ step 4 :  xo  oxox
 const switchBulb = (str, i) => i % 2 ? ({x: 'o', o: 'x'})[str] : str;
 const bulbMaze = maze => [...maze].every((e, i) => switchBulb(e, i) !== 'o');
 
+// alternatively:
+// const bulbMaze = maze => [...maze].every((e, i) => e !== 'ox'[i % 2]);
+
 console.log(bulbMaze("xo oxox")) // true
 console.log(bulbMaze("xo  oxox")) // false
 console.log(bulbMaze("xo ox xo")) // true
