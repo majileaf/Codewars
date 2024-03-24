@@ -20,8 +20,10 @@ Ignore all other letters; we don't want our taco uneccesarily clustered or else 
 Note that no matter what ingredients are passed, our taco will always have a shell.
 */
 
-function tacofy(word) {
-  // Code here
+const tacofy = word => {
+  const ingredients = {a: 'beef', e: 'beef', i: 'beef', o: 'beef', u: 'beef', t: 'tomato', l: 'lettuce', c: 'cheese', g: 'guacamole', s: 'salsa'};
+  const taco = (word.toLowerCase().match(/[aeioutlcgs]/g) || []).map(e => ingredients[e]);
+  return ['shell', ...taco, 'shell'];
 }
 
 console.log(tacofy("")) // ['shell', 'shell']
