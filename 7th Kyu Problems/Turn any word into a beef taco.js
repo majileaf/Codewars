@@ -26,6 +26,13 @@ const tacofy = word => {
   return ['shell', ...taco, 'shell'];
 }
 
+// alternative:
+// const tacofy = word => {
+//   const ingredients = {a: 'beef', e: 'beef', i: 'beef', o: 'beef', u: 'beef', t: 'tomato', l: 'lettuce', c: 'cheese', g: 'guacamole', s: 'salsa'};
+//   const taco = [...word.toLowerCase().replace(/[^aeioutlcgs]/g, '')].map(e => ingredients[e]);
+//   return ['shell', ...taco, 'shell'];
+// }
+
 console.log(tacofy("")) // ['shell', 'shell']
 console.log(tacofy("a")) //  ['shell', 'beef', 'shell']
 console.log(tacofy("ggg")) //  ['shell', 'guacamole', 'guacamole', 'guacamole', 'shell']
