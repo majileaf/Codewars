@@ -39,6 +39,21 @@ const isValid = formula => {
           (material[7] || material[8]);
 }
 
+// alternatively:
+// const isValid = formula => {
+//   const material = {
+//       1: false, 2: false, 3: false, 4: false,
+//       5: false, 6: false, 7: false, 8: false
+//   }
+//   formula.forEach(mat => material[mat] = true);
+
+//   const cannot = (a, b) => !(material[a] && material[b]);
+//   const must = (a, b) => material[a] === material[b];
+//   const any = (a, b) => material[a] || material[b];
+
+//   return cannot(1, 2) && cannot(3, 4) && must(5, 6) && any(7, 8);
+// }
+
 console.log(isValid([1,3,7])) // true
 console.log(isValid([7,1,2,3])) // false
 console.log(isValid([1,3,5,7])) // false
