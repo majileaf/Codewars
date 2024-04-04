@@ -33,10 +33,10 @@ const isValid = formula => {
       5: false, 6: false, 7: false, 8: false
   }
   formula.forEach(mat => material[mat] = true);
-  return !(material['1'] && material['2']) && 
-         !(material['3'] && material['4']) && 
-          (material['5'] === material['6']) && 
-          (material['7'] || material['8']);
+  return !(material[1] && material[2]) && 
+         !(material[3] && material[4]) && 
+          (material[5] === material[6]) && 
+          (material[7] || material[8]);
 }
 
 console.log(isValid([1,3,7])) // true
