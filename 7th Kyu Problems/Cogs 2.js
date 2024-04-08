@@ -27,6 +27,13 @@ const cogRpm = (cogs, n) => {
   return [sign(cogs)(0, n) * lRpm, sign(cogs)(n, cogs.length) * rRpm];
 }
 
+// alternatively:
+// const cogRpm = (cogs, n) => {
+//   const lRpm = cogs[n] / cogs[0];
+//   const rRpm = cogs[n] / cogs[cogs.length - 1];
+//   return [(-1) ** n * lRpm, (-1) ** (cogs.length - n) * rRpm];
+// }
+
 console.log(cogRpm([100, 50, 25], 1)) // [-0.5, -2]
 console.log(cogRpm([100, 100, 50, 25], 2)) // [0.5, -2]
 console.log(cogRpm([100, 100, 100, 100], 0)) // [1, -1]
