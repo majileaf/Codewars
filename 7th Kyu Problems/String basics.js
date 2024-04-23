@@ -31,9 +31,17 @@ String.prototype.substring()
 Array.prototype.map()
 */
 
-function getUsersIds(str){
-  //your code here
-}
+const getUsersIds = str => str
+    .toLowerCase()
+    .trim()
+    .split(',')
+    .map(e => e
+        .replace('uid', '')
+        .split('')
+        .map(f => f.replace('#', ''))
+        .join('')
+        .trim());
+        
 console.log(getUsersIds("uid12345")) // ["12345"]
 console.log(getUsersIds("   uidabc  ")) // ["abc"]
 console.log(getUsersIds("#uidswagger")) // ["swagger"]
