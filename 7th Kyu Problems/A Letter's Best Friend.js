@@ -25,6 +25,14 @@ All sentences will be given in lowercase.
 
 const bestFriend = (txt, a, b) => a !== b && txt.split(a + b).every(e => !e.includes(a)) || (a === b && !txt.includes(a));
 
+// alternative
+// const bestFriend = (txt, a, b) => {
+//   for (let i = 0; i < txt.length; i++) {
+//       if (txt[i] === a && txt[i + 1] !== b) return false;
+//   }
+//   return true;
+// }
+
 // First Letter Missing
 console.log(bestFriend('',     'z', 'h')) // true
 console.log(bestFriend('h',    'z', 'h')) // true
