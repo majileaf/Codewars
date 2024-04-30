@@ -33,6 +33,12 @@ const bestFriend = (txt, a, b) => a !== b && txt.split(a + b).every(e => !e.incl
 //   return true;
 // }
 
+// alternative #2: 
+// const bestFriend = (txt, a, b) => ![...txt].some((e, i) => e === a && txt[i + 1] !== b);
+
+// alternatively #3:
+// const bestFriend = (txt, a, b) => [...txt].every((e, i) => e !== a || txt[i + 1] === b);
+
 // First Letter Missing
 console.log(bestFriend('',     'z', 'h')) // true
 console.log(bestFriend('h',    'z', 'h')) // true
