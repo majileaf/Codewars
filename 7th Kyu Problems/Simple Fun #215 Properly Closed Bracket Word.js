@@ -34,10 +34,8 @@ const closedBracketWord = word => {
 
   for (let i = 0; i < word.length / 2; i++) {
       a = word[i].charCodeAt() - 96;
-      a = a > 13 ? 27 - a : a;
       b = word[word.length - 1 - i].charCodeAt() - 96;
-      b = b > 13 ? 27 - b : b;
-      if (a !== b || word[i] === word[word.length - 1 - i]) return false;
+      if (a !== 27 - b) return false;
   }
   return true;
 }
