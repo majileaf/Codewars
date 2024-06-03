@@ -15,7 +15,7 @@ const reverse = str => str
 
 // alternatively:
 // const reverse = str => str
-//     .trim()
+//     .split(' ')
 //     .filter(e => e)
 //     .map((e, i) => (i % 2 ? [...e].reverse().join('') : e))
 //     .join(' ');
