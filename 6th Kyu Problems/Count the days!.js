@@ -11,8 +11,13 @@ If the event is today, return "Today is the day!"
 Else, return "x days"
 */
 
-function countDays(d){
-  //have fun with coding! :)
+const countDays = d => {
+  const today = new Date().getTime();
+  d = d.getTime(); 
+
+  return new Date(d).toDateString() === new Date(today).toDateString() ? 'Today is the day!' :
+         d < today ? 'The day is in the past!' :
+         `${Math.round((d - today) / 86400000)} days`;
 }
 
 console.log(countDays(new Date("February 28, 2016"))) // "The day is in the past!"
