@@ -20,5 +20,13 @@ const countDays = d => {
          `${Math.round((d - today) / 86400000)} days`;
 }
 
+// alternatively:
+// const countDays = d => {
+//   const days = Math.round((d - new Date()) / 86400000);
+//   return days < 0 ? 'The day is in the past!' : 
+//          days < 1 ? 'Today is the day!' : 
+//          `${days} days`;
+// }
+
 console.log(countDays(new Date("February 28, 2016"))) // "The day is in the past!"
 console.log(countDays(new Date())) // "Today is the day!"
