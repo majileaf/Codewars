@@ -16,4 +16,8 @@ const mostLikely = (prob1, prob2) => {
 // const getN = str => str.split(':').reduce((sum, n) => sum / n);
 // const mostLikely = (prob1, prob2) => getN(prob1) > getN(prob2);
 
+// alternatively #2:
+// const getProb = (a, b) => a / b;
+// const mostLikely = (prob1, prob2) => getProb(...prob1.split(':')) > getProb(...prob2.split(':'));
+
 console.log(mostLikely('1:3','1:2')) // false
