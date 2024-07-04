@@ -30,5 +30,15 @@ const findYear = (month, dayOfWeek) => {
     return 0;
 }
 
+// alternatively:
+// const findYear = (month, dayOfWeek) => {
+//     const time = new Date(2014, month, 1);
+//     for (let year = 2014; year <= 2050; year++) {
+//         date.setYear(year);
+//         if (date.getDay() === dayOfWeek) return year;
+//     }
+//     return 0;
+// }
+
 console.log(findYear(11,2)) // 2015
 console.log(findYear(4,55)) // 0
