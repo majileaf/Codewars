@@ -16,7 +16,7 @@ const sort = (initialArray, sortingArray) => {
 }
 
 // alternatively:
-// const sort = (initialArray, sortingArray) => initialArray.reduce((sum, n, i) => (sum[sortingArray[i]] = initialArray[i], sum), []);
+// const sort = (initialArray, sortingArray) => initialArray.reduce((sum, _, i) => (sum[sortingArray[i]] = initialArray[i], sum), []);
 
 console.log(sort(['x', 'y', 'z'], [1, 2, 0])) // ["z", "x", "y"]
 console.log(sort(['x', 'y', 'z'], [0, 1, 2])) // ['x', 'y', 'z']
