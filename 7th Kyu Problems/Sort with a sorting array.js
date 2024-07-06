@@ -8,8 +8,8 @@ sort(['z', 'x', 'y'], [0, 2, 1]) => ['z', 'y', 'x']
 */
 
 const sort = (initialArray, sortingArray) => {
-    const arr = [...Array(initialArray.length)];
-    for (let i = 0; i < arr.length; i++) {
+    const arr = [];
+    for (let i = 0; i < initialArray.length; i++) {
         arr[sortingArray[i]] = initialArray[i];
     }
     return arr;
