@@ -17,9 +17,7 @@ All lists will include one valid pair of glasses because I swear I dropped them 
 All elements in the list are strings.
 */
 
-function findGlasses(arr){
-  // Good luck!
-}
+const findGlasses = arr => arr.findIndex(e => /O-{1,}O/.test(e));
 
 console.log(findGlasses(['phone', 'O-O', 'coins', 'keys'])) // 1
 console.log(findGlasses(['OO', 'wallet', 'O##O', 'O----O'])) // 3
