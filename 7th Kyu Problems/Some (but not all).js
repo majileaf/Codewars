@@ -13,13 +13,21 @@ Examples
 ([4, 4], x -> x > 3) == false
 */
 
+// initial solution:
+// const someButNotAll = (seq, pred) => [...seq].some(pred) && ![...seq].every(pred);
+
 const someButNotAll = (seq, pred) => {
-  return false
+  seq = [...seq];
+  let count = 0;
+  for (let i = 0; i < seq.length; i++) {
+      if (pred(seq[i])) count++;
+  }
+  return count > 0 && count < seq.length;
 }
 
 console.log(someButNotAll('abcdefg&%$', str => /[a-z]/i.test(str))) // true
 console.log(someButNotAll('&%$=', str => /[a-z]/i.test(str))) // false
 console.log(someButNotAll('abcdefg', str => /[a-z]/i.test(str))) // false
-console.log(someButNotAll([4, 1], x => x>3)) // true
-console.log(someButNotAll([1, 1], x => x>3)) // false
-console.log(someButNotAll([4, 4], x => x>3)) // false
+console.log(someButNotAll([4, 1], x => x > 3)) // true
+console.log(someButNotAll([1, 1], x => x > 3)) // false
+console.log(someButNotAll([4, 4], x => x > 3)) // false
