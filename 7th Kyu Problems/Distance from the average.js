@@ -16,8 +16,15 @@ With Clojure to round use:
 (defn roundTo2 [n] (/ (Math/round (* n 100.0)) 100.0))
 */
 
-function distancesFromAverage(arr){
-  //your code here
+// initial solution:
+// const distancesFromAverage = arr => {
+//   const totalAvg = arr.reduce((sum, n) => sum + n, 0) / arr.length;
+//   return arr.map(e => +(totalAvg - e).toFixed(2));
+// }
+
+const distancesFromAverage = arr => {
+  const totalAvg = arr.reduce((sum, n) => sum + n, 0) / arr.length;
+  return arr.map(e => Math.round((totalAvg - e) * 100) / 100);
 }
 
 console.log(distancesFromAverage([55, 95, 62, 36, 48])) // [4.2, -35.8, -2.8, 23.2, 11.2]
