@@ -17,8 +17,9 @@ Each event can be downcase/lowercase, or uppercase.
 If it is downcase/lowercase you need 1 coffee by events and if it is uppercase you need 2 coffees.
 */
 
-function howMuchCoffee(events) {
-  // Code go here
+const howMuchCoffee = events => {
+  const count = events.reduce((sum, n) => sum + (/^(cw|dog|cat|movie)$/.test(n) ? 1 : /^(CW|DOG|CAT|MOVIE)$/.test(n) ? 2 : 0), 0);
+  return count > 3 ? 'You need extra sleep' : count;
 }
 
 console.log(howMuchCoffee([])) // 0
