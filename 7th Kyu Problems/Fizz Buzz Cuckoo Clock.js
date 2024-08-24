@@ -26,8 +26,15 @@ Some examples
 "12:00"       "Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo"
 */
 
-function fizzBuzzCuckooClock(time) {
-  // your code here
+const fizzBuzzCuckooClock = time => {
+  const [hour, min] = time.split(':');
+
+  if (min === '00')        return [...Array(hour % 12 || 12).fill('Cuckoo')].join(' ');
+  else if (min === '30')   return 'Cuckoo';
+  else if (min % 15 === 0) return 'Fizz Buzz';
+  else if (min % 5 === 0)  return 'Buzz';
+  else if (min % 3 === 0)  return 'Fizz';
+  return 'tick';
 }
 
 console.log(fizzBuzzCuckooClock("13:34")) // "tick"
