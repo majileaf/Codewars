@@ -11,9 +11,11 @@ remove('apples and bananas',{'a':50, 'n':1}) === 'pples d bnns'
 // we don't have 50 a's, so just remove it till we hit end of string.
 */
 
-function remove(str, what) {
-  //code me
-}
+// initial solution:
+// const remove = (str, what) => [...str].map(e => what[e] ? what[e]-- && '' : e).join('');
+
+// alternatively:
+const remove = (str, what) => str.replace(/./g, e => what[e] ? what[e]-- && '' : e);
 
 console.log(remove('this is a string',{'t':1, 'i':2})) // 'hs s a string'
 console.log(remove('hello world',{'x':5, 'i':2})) // 'hello world'
