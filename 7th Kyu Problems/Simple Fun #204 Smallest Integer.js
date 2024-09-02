@@ -20,15 +20,24 @@ For
 0,1,2,(3)...5
 */
 
-const smallestInteger = matrix => {
-    const res = [...new Set(matrix.flat().sort((a, b) => a - b))];
-    let zero = false;
+// initial solution:
+// const smallestInteger = matrix => {
+//     const res = [...new Set(matrix.flat().sort((a, b) => a - b))];
+//     let zero = false;
 
-    for (let i = 0; i < res.length; i++) {
-        if (res[i] === 0) zero = true;
-        if (res[i] >= 0 && res[i + 1] - res[i] !== 1) return zero ? res[i] + 1 : 0;
-    }
-    return 0;
+//     for (let i = 0; i < res.length; i++) {
+//         if (res[i] === 0) zero = true;
+//         if (res[i] >= 0 && res[i + 1] - res[i] !== 1) return zero ? res[i] + 1 : 0;
+//     }
+//     return 0;
+// }
+
+// alternatively:
+const smallestInteger = matrix => {
+    const res = new Set(matrix.flat());
+    let i = 0;
+    while (res.has(i)) i++;
+    return i;
 }
 
 console.log(smallestInteger([
