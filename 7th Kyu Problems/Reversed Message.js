@@ -8,12 +8,21 @@ reverseMessage('This is an example of a Reversed Message!');
 Returns: '!egassem Desrever A Fo Elpmaxe Na Si Siht'
 */
 
-const reverseMessage = str => str.length ? str
-    .split(' ')
-    .reverse()
-    .map(e => e[e.length - 1].toUpperCase() + [...e].reverse().join('').slice(1).toLowerCase())
-    .join(' ') : '';
+// const reverseMessage = str => str.length ? str
+//     .split(' ')
+//     .reverse()
+//     .map(e => e[e.length - 1].toUpperCase() + [...e].reverse().join('').slice(1).toLowerCase())
+//     .join(' ') : '';
 
+// alternative:
+const reverseMessage = str => str.length ? str
+    .split('')
+    .reverse()
+    .join('')
+    .split(' ')
+    .map(e => e[0].toUpperCase() + e.slice(1).toLowerCase())
+    .join(' ') : '';
+    
 console.log(reverseMessage('AaaaA')) // 'Aaaaa'
 console.log(reverseMessage('Hello there')) // 'Ereht Olleh'
 console.log(reverseMessage('Pl34k78j')) //  'J87k43lp'
