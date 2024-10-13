@@ -10,8 +10,7 @@ const maxlen = (l1, l2) => {
   const n = Math.floor(Math.max(l1, l2) / Math.min(l1, l2));
   return n === 2 ? Math.min(l1, l2) :
          n === 1 ? Math.max(l1, l2) / 2 :
-         n > 2   ? Math.max(l1, l2) / 3 :
-         Math.floor((l1 + l2) / 3);     
+         Math.max(l1, l2) / 3;
 }
 
 console.log(maxlen(5, 12)) // 5
