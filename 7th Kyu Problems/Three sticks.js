@@ -6,9 +6,12 @@ Write a function, maxlen, that takes the lengths of the two sticks (L1 and L2, b
 that will return the maximum length you can make the three sticks.
 */
 
-function maxlen(l1, l2) {
-  // return maximum length
-  return 0;
+const maxlen = (l1, l2) => {
+  const n = Math.floor(Math.max(l1, l2) / Math.min(l1, l2));
+  return n === 2 ? Math.min(l1, l2) :
+         n === 1 ? Math.max(l1, l2) / 2 :
+         n > 2   ? Math.max(l1, l2) / 3 :
+         Math.floor((l1 + l2) / 3);     
 }
 
 console.log(maxlen(5, 12)) // 5
