@@ -17,7 +17,7 @@ Array.range = function(start, count) {
 }
 
 Array.prototype.sum = function() {
-return this.reduce((sum, n) => sum + n, 0);
+  return this.reduce((sum, n) => sum + n, 0);
 }
 
 console.log(Array.range(1,3)) // [1,2,3]
