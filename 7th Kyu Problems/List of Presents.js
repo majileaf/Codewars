@@ -27,5 +27,16 @@ const howManyGifts = (maxBudget, gifts) => {
   return presents;
 }
 
+// alternatively:
+// const howManyGifts = (maxBudget, gifts) => {
+//   const gift = gifts.slice().sort((a, b) => a - b);
+//   let presents = 0;
+//   for (let i = 0; maxBudget - gift[i] >= 0; i++) {
+//       maxBudget -= gift[i];
+//       presents++;
+//   }
+//   return presents;
+// }
+
 console.log(howManyGifts(20, [13, 2, 4, 6, 1])) // 4
 console.log(howManyGifts(0, [1])) // 0
