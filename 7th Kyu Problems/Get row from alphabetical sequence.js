@@ -64,6 +64,12 @@ const aSeq = [
 
 const getRow = n => aSeq[(n - 1) % 26];
 
+// alternatively:
+// const getRow = n => {
+//   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//   return alphabet.slice((n - 1) % 26).padStart(26, alphabet[(n - 1) % 26]);
+// }
+
 console.log(getRow( 1)) // "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 console.log(getRow(26)) // "ZZZZZZZZZZZZZZZZZZZZZZZZZZ"
 console.log(getRow(15)) // "OOOOOOOOOOOOOOOPQRSTUVWXYZ"
