@@ -21,9 +21,7 @@ elements (or $elements in Ruby) is a preloaded array containing the elements in 
 ['Wood', 'Fire', 'Earth', 'Metal', 'Water']
 */
 
-function chineseZodiac(year){
-  return 
-}
+const chineseZodiac = year => elements[Math.floor((year - 1924) / 2) % 5] + ' ' + animals[(year - 1924) % 12];
 
 console.log(chineseZodiac(1965)) // "Wood Snake"
 console.log(chineseZodiac(1938)) // "Earth Tiger"
