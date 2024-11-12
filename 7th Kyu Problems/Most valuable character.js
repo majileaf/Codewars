@@ -15,9 +15,9 @@ solve("axyzxyz") = 'x'
 
 const solve = st => {
    const count = {};
-   st = [...new Set(st)];
-   for (let i = 0; i < st.length; i++) {
-       count[st[i]] = st.lastIndexOf(st[i]) - st.indexOf(st[i]);
+   const filtered = [...new Set(st)];
+   for (let i = 0; i < filtered.length; i++) {
+       count[filtered[i]] = st.lastIndexOf(filtered[i]) - st.indexOf(filtered[i]);
    }
    return Object.keys(count).sort((a, b) => count[b] - count[a] || a.localeCompare(b))[0];
 }
