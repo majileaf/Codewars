@@ -15,7 +15,7 @@ solve("axyzxyz") = 'x'
 
 const solve = st => {
    const count = {};
-   st = [...st];
+   st = [...new Set(st)];
    for (let i = 0; i < st.length; i++) {
        count[st[i]] = st.lastIndexOf(st[i]) - st.indexOf(st[i]);
    }
