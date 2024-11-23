@@ -10,10 +10,10 @@ It expects Calculator.average(3,4,5) to return 4.
 */
 
 var Calculator = {
-    average: function(...sum) {
-       return sum.reduce((sum, n) => sum + n, 0) / sum.length || 0;
-    }
-   };
+ average: function(...sum) {
+    return sum.reduce((sum, n) => sum + n, 0) / sum.length || 0;
+ }
+};
 
 console.log(Calculator.average(3,4,5)) // .to.be.approximately(4, eps);
 console.log(Calculator.average(3,4,5,6,7,8,9,8,7,6,5,4,3)) // .to.be.approximately(5.769230769230769, eps);
