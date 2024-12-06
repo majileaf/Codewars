@@ -26,5 +26,11 @@ const solve = n => {
   return iMatrix.flat(1).reverse().reduce((sum, n, i) => sum + (n === 1 ? BigInt(2) ** BigInt(i) : BigInt(n)), BigInt(0));
 }
 
+// alternatively:
+// const solve = n => {
+//   const iMatrix = [...Array(n)].map((_, i) => Array(n).fill(0).fill(1, i, i + 1));
+//   return BigInt('0b' + iMatrix.flat(1).join(''))
+// }
+
 console.log(solve(2)) // 9n
 console.log(solve(4)) // 33825n
