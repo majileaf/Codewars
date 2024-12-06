@@ -21,8 +21,9 @@ Limits:
 length code <= 1024
 */
 
-function solve(n) {
-  return 0n;
+const solve = n => {
+  const iMatrix = [...Array(n)].map((_, i) => Array(n).fill(0).fill(1, i, i + 1));
+  return iMatrix.flat(1).reverse().reduce((sum, n, i) => sum + (n === 1 ? BigInt(2) ** BigInt(i) : BigInt(n)), BigInt(0));
 }
 
 console.log(solve(2)) // 9n
