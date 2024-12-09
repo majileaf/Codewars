@@ -20,9 +20,7 @@ Note
 Again, try to think of a formula that will shorten your solution and help you pass big tests.
 */
 
-function realNumbers(n){
-  // your code here
-}
+const realNumbers = n => n - (Math.floor(n / 2) + Math.floor(n / 3) + Math.floor(n / 5) - Math.floor(n / 6) - Math.floor(n / 10) - Math.floor(n / 15) + Math.floor(n / 30));
 
 console.log(realNumbers(5)) // 1
 console.log(realNumbers(10)) // 2
