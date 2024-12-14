@@ -23,9 +23,7 @@ isMonotone([])     == True
 Such a sequence is also called monotone or monotonic sequence, hence the name isMonotone.
 */
 
-var isMonotone = function(arr){
-  return true; // << change this
-}
+const isMonotone = arr => arr.slice(1).every((_, i) => arr[i] <= arr[i + 1]);
 
 console.log(isMonotone([1,2,3])) // true
 console.log(isMonotone([1,1,2])) // true
