@@ -40,9 +40,7 @@ public class Route
 }
 */
 
-function itinerary(travel) {
-  // here your code
-}
+const itinerary = travel => travel.map((e, i) => travel[i - 1]?.out !== e.in ? e.in + '-' + e.out : e.out).join('-');
 
 // Simple
 console.log(itinerary([{in: "TRN", out: "FCO"}])) // "TRN-FCO"
