@@ -18,7 +18,7 @@ numberProperty(-7)  // ==> [false, false, false]
 numberProperty(-10) // ==> [false, true,  true] 
 */
 
-const checkPrime = n => {
+const isPrime = n => {
     for (let i = 2; i <= Math.sqrt(n); i++) {
         if (n % i === 0) return false;
     }
