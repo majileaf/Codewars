@@ -11,8 +11,24 @@ Example:
 "" -> 0
 */
 
-function longestPalindrome(s){
-  //your code here
+const isPalindrome = str => str === [...str].reverse().join('');
+
+const longestPalindrome = s => {
+    if (s.length < 2) return s.length;
+
+    let palindrome = '';
+    let subStr = '';
+    for (let i = 0; i < s.length; i++) {
+        for (let j = s.length - 1; j > i; j--) {
+            subStr = s.slice(i, j + 1);
+            if (s[i] === s[j] && isPalindrome(subStr)) {
+                if (subStr.length > palindrome.length) palindrome = subStr;
+                i = j + 1;
+                j--;
+            }
+        }
+    }
+    return palindrome.length || 1;
 }
 
 console.log(longestPalindrome("a")) // 1
