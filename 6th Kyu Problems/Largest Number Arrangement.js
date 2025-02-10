@@ -13,6 +13,10 @@ Examples:
 const makeStr = (a, b) => Number(`${a}` + `${b}`);
 const largestArrangement = array => +array.slice().sort((a, b) => makeStr(a, b) > makeStr(b, a) ? -1 : 1).join('');
 
+// alternatively:
+// const makeStr = (a, b) => Number(`${a}` + `${b}`);
+// const largestArrangement = array => +array.slice().sort((a, b) => makeStr(b, a) - makeStr(a, b)).join('');
+
 console.log(largestArrangement([4, 50, 8, 145])) // 8504145
 console.log(largestArrangement([4, 40, 7])) // 7440
 console.log(largestArrangement([4, 46, 7])) // 7464
