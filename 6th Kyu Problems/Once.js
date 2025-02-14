@@ -17,7 +17,6 @@ function once(fn) {
           isTrue = false;
           return fn(...value);
       } 
-      return undefined;
   }
 }
 
