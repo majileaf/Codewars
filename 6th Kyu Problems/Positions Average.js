@@ -42,5 +42,20 @@ const posAverage = s => {
     return count / (totalComb(s.length, 2) * s[0].length) * 100;
 }
 
+// alternatively:
+// const posAverage = s => {
+//     let count = 0;
+//     s = s.split(', ');
+
+//     for (let i = 0; i < s.length; i++)  {
+//         for (let j = i + 1; j < s.length; j++) {
+//             for (let k = 0; k < s[0].length; k++) {
+//                 if (s[i][k] === s[j][k]) count++;
+//             }
+//         }
+//     }
+//     return count / (s.length * (s.length - 1) / 2 * s[0].length) * 100;
+// }
+
 console.log(posAverage("466960, 069060, 494940, 060069, 060090, 640009, 496464, 606900, 004000, 944096")) // 26.6666666667
 console.log(posAverage("444996, 699990, 666690, 096904, 600644, 640646, 606469, 409694, 666094, 606490")) // 29.2592592593
