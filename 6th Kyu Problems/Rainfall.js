@@ -48,7 +48,7 @@ const data1 =
 const towns = ["Rome", "London", "Paris", "NY", "Vancouver", "Sydney", "Bangkok", "Tokyo",
                "Beijing", "Lima", "Montevideo", "Caracas", "Madrid", "Berlin", "Lon"]
 
-const numData = str => str.split('\n').map(e => e.match(/[\d+.\d+]+/g).map(Number));
+const numData = str => str.split('\n').map(e => e.match(/\d+.\d+/g).map(Number));
 const mean = (town, strng) => numData(strng)[towns.indexOf(town)]?.reduce((sum, n) => sum + n, 0) / 12 || -1;
 const variance = (town, strng) => {
     const meanTown = mean(town, strng);
