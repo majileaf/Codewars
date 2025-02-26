@@ -52,7 +52,7 @@ const numData = str => str.split('\n').map(e => e.match(/[\d+.\d+]+/g).map(Numbe
 const mean = (town, strng) => numData(strng)[towns.indexOf(town)]?.reduce((sum, n) => sum + n, 0) / 12 || -1;
 const variance = (town, strng) => {
     const meanTown = mean(town, strng);
-    return numData(strng)[towns.indexOf(town)]?.reduce((sum, n) => sum + Math.abs(meanTown - n) ** 2, 0) / 12 || -1;
+    return numData(strng)[towns.indexOf(town)]?.reduce((sum, n) => sum + (meanTown - n) ** 2, 0) / 12 || -1;
 }
 
 console.log(mean("London", data)) // 51.199999999999996
