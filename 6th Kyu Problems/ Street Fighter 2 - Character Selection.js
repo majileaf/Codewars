@@ -79,6 +79,20 @@ const streetFighterSelection = (fighters, [y, x], moves) => {
   return arr;
 }
 
+// const streetFighterSelection = (fighters, [y, x], moves) => {
+//   const arr = [];
+//   for (let i = 0; i < moves.length; i++) {
+//       switch(moves[i]) {
+//           case 'left' : x = (x - 1 + fighters[1].length) % fighters[1].length;       break;
+//           case 'right': x = (x + 1) % fighters[1].length;                            break;
+//           case 'up'   : y = Math.max(0, y - 1);                                      break;
+//           case 'down' : y = Math.min(fighters.length - 1, y + 1);                    break;
+//       }
+//       arr.push(fighters[y][x]);
+//   }
+//   return arr;
+// }
+
 let moves = []
 let fighters = [
   ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
