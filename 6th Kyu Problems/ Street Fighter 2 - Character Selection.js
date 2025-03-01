@@ -65,8 +65,28 @@ Examples
     ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']
 */
 
-function streetFighterSelection(fighters, position, moves){
-  return "";
+const getPosition = (mov) => {
+  let [y, x] = [0, 0];
+  switch(mov) {
+      case 'left' : x--; break;
+      case 'right': x++; break;
+      case 'up'   : y--; break;
+      case 'down' : y++; break;
+  }
+  return [y, x];
+}
+
+const streetFighterSelection = (fighters, position, moves) => {
+  let newPos = position.slice();
+  return moves.map(move => {
+      let [y, x] = getPosition(move);
+      newPos[0] += y;
+      newPos[1] += x;
+      if (newPos[0] < 0) newPos[0] = 0;
+      else if (newPos[0] > fighters.length - 1) newPos[0] = fighters.length - 1;
+      if (newPos[1] < 0) newPos[1] = fighters[1].length - 1;
+      return fighters[newPos[0]][newPos[1] % fighters[1].length];
+  });
 }
 
 let moves = []
