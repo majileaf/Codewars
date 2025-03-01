@@ -96,3 +96,56 @@ console.log(streetFighterSelection(fighters, [0,0], moves)) //  ['Ken', 'Ken', '
 // should work when always moving up
 moves = ["up","up","up","up"];
 console.log(streetFighterSelection(fighters, [0,0], moves)) //  ['Ryu', 'Ryu', 'Ryu', 'Ryu']
+
+moves = 
+[
+  'right', 'down',  'left',  'up',   'up',
+  'left',  'up',    'up',    'left', 'up',
+  'down',  'right', 'up',    'left', 'down',
+  'left',  'right', 'right', 'up',   'up',
+  'right', 'up',    'up',    'left', 'up',
+  'up',    'right', 'up',    'left', 'right',
+  'right', 'up',    'down',  'left', 'left',
+  'left',  'up',    'up',    'down', 'up',
+  'up',    'down',  'left',  'up',   'left',
+  'right', 'down',  'up',    'down', 'left'
+]
+console.log(streetFighterSelection(fighters, [0, 3], moves))
+
+// [
+//   'Balrog',  'Sagat',   'Dhalsim', 'Guile',
+//   'Guile',   'Blanka',  'Blanka',  'Blanka',
+//   'E.Honda', 'E.Honda', 'Chun Li', 'Zangief',
+//   'Blanka',  'E.Honda', 'Chun Li', 'Ken',
+//   'Chun Li', 'Zangief', 'Blanka',  'Blanka',
+//   'Guile',   'Guile',   'Guile',   'Blanka',
+//   'Blanka',  'Blanka',  'Guile',   'Guile',
+//   'Blanka',  'Guile',   'Balrog',  'Balrog',
+//   'Sagat',   'Dhalsim', 'Zangief', 'Chun Li',
+//   'E.Honda', 'E.Honda', 'Chun Li', 'E.Honda',
+//   'E.Honda', 'Chun Li', 'Ken',     'Ryu',
+//   'Vega',    'Ryu',     'Ken',     'Ryu',
+//   'Ken',     'M.Bison'
+// ]
+
+moves = 
+[
+  'right', 'up',   'down',
+  'down',  'down', 'up',
+  'down',  'left', 'up',
+  'down',  'down', 'down',
+  'down',  'left', 'down'
+]
+
+console.log(streetFighterSelection(fighters, [0, 2], moves))
+
+// [
+//   'Guile',   'Guile',
+//   'Dhalsim', 'Dhalsim',
+//   'Dhalsim', 'Guile',
+//   'Dhalsim', 'Zangief',
+//   'Blanka',  'Zangief',
+//   'Zangief', 'Zangief',
+//   'Zangief', 'Chun Li',
+//   'Chun Li'
+// ]
