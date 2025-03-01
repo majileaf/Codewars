@@ -65,44 +65,19 @@ Examples
     ['E.Honda', 'Chun Li', 'Ken', 'M.Bison', 'Sagat', 'Dhalsim', 'Sagat']
 */
 
-const getPosition = (mov) => {
-  let [y, x] = [0, 0];
-  switch(mov) {
-      case 'left' : x--; break;
-      case 'right': x++; break;
-      case 'up'   : y--; break;
-      case 'down' : y++; break;
+const streetFighterSelection = (fighters, [y, x], moves) => {
+  const arr = [];
+  for (let i = 0; i < moves.length; i++) {
+      switch(moves[i]) {
+          case 'left' : x = x === 0 ? fighters[1].length - 1 : x - 1;                break;
+          case 'right': x = (x + 1) % fighters[1].length;                            break;
+          case 'up'   : y = y === 0 ? 0 : y - 1;                                     break;
+          case 'down' : y = y === fighters.length - 1 ? fighters.length - 1 : y + 1; break;
+      }
+      arr.push(fighters[y][x]);
   }
-  return [y, x];
+  return arr;
 }
-
-const streetFighterSelection = (fighters, position, moves) => {
-  let newPos = position.slice();
-  return moves.map(move => {
-      let [y, x] = getPosition(move);
-      newPos[0] += y;
-      newPos[1] += x;
-      if (newPos[0] < 0) newPos[0] = 0;
-      else if (newPos[0] > fighters.length - 1) newPos[0] = fighters.length - 1;
-      if (newPos[1] < 0) newPos[1] = fighters[1].length - 1;
-      return fighters[newPos[0]][newPos[1] % fighters[1].length];
-  });
-}
-
-// alternative:
-// const streetFighterSelection = (fighters, [y, x], moves) => {
-//   const arr = [];
-//   for (let i = 0; i < moves.length; i++) {
-//       switch(moves[i]) {
-//           case 'left' : x = --x < 0 ? fighters[1].length - 1 : x--;                break;
-//           case 'right': x = ++x % fighters[1].length;                              break;
-//           case 'up'   : y = --y < 0 ? 0 : y--;                                     break;
-//           case 'down' : y = ++y > fighters.length - 1 ? fighters.length - 1 : y++; break;
-//       }
-//       arr.push(fighters[y][x]);
-//   }
-//   return arr;
-// }
 
 let moves = []
 let fighters = [
