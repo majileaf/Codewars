@@ -10,7 +10,7 @@ E.g. string that contains only spaces is like empty string.
 It’s guaranteed that array contains more than 2 strings.
 */
 
-const sortStr = str => [...new Set(str.toLowerCase())].sort((a, b) => a.localeCompare(b)).join('');
+const sortStr = str => [...new Set(str.toLowerCase())].sort().join('');
 const findUniq = arr => {
     const [a, b, c] = arr.slice(0, 3).map(e => sortStr(e));
     if (a !== b && a !== c) return arr[0];
