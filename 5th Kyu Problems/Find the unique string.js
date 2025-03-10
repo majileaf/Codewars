@@ -10,8 +10,14 @@ E.g. string that contains only spaces is like empty string.
 It’s guaranteed that array contains more than 2 strings.
 */
 
-function findUniq(arr) {
-  // do magic
+const sortStr = str => [...new Set(str.toLowerCase())].sort((a, b) => a.localeCompare(b)).join('');
+const findUniq = arr => {
+    const [a, b, c] = arr.slice(0, 3).map(e => sortStr(e));
+    if (a !== b && a !== c) return arr[0];
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (sortStr(arr[i]) !== sortStr(arr[i + 1])) return arr[i + 1];
+    }
 }
 
 console.log(findUniq([ 'Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a' ])) // 'BbBb'
