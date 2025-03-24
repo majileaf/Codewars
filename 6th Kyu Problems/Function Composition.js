@@ -17,9 +17,7 @@ compose(f , g)(x)
 This kata is not available in haskell; that would be too easy!
 */
 
-function compose(f,g) {
-  // Compose the two functions here!
-}
+const compose = (f, g) => (...args) => f(g(...args));
 
 const add1 = function(a){return a + 1}
 const id = function(a){return a}
