@@ -12,14 +12,16 @@ divisors(13) --> "13 is prime"
 */
 
 const divisors = integer => {
-    const arr = [];
+    const arr = []; 
+    const compl = [];
+
     for (let i = 2; i * i <= integer; i++) {
         if (integer % i === 0) {
             arr.push(i);
-            if (i !== integer / i) arr.push(integer / i);
+            if (i !== integer / i) compl.push(integer / i);
         }
     }
-    return arr.length ? arr.sort((a, b) => a - b) : `${integer} is prime`;
+    return arr.length ? [...arr, ...compl.reverse()] : `${integer} is prime`;
 }
 
 console.log(divisors(15)) // [3, 5]
