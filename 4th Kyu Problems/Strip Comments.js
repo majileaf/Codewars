@@ -18,9 +18,14 @@ var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["
 // result should == "apples, pears\ngrapes\nbananas"
 */
 
-function solution(text, markers) {
-  // TODO
-}
+const solution = (text, markers) => text
+    .split('\n')
+    .map(e => {
+        let str = e;
+        markers.forEach(mark => str = str.slice(0, str.indexOf(mark) !== -1 ? str.indexOf(mark) : undefined));
+        return str.trimEnd();
+    })
+    .join('\n');
 
 console.log(solution('aa bb cc', [])) // 'aa bb cc'
 console.log(solution('aa bb cc  ', [])) // 'aa bb cc'
