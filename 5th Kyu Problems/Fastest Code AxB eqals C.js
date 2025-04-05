@@ -14,8 +14,20 @@ The result will be the first pair of numbers(from the left to the right).
 For example,findAB([1,2,3,4,5,6],6) should return [1,6], instead of [2,3]
 */
 
-function findAB(numbers,c){
-  //coding and coding...
+const findAB = (numbers, c) => {
+    const count = {};
+    let compl = 0;
+    
+    for (let i = 0; i < numbers.length; i++) {
+        count[numbers[i]] = count[numbers[i]] < i ? count[numbers[i]] : i;
+    }
+
+    for (let i = 0; i < numbers.length; i++) {
+        compl = numbers[i] === 0 ? 0 : c / numbers[i] + 0;
+        if (count[compl] !== undefined && count[compl] !== i && numbers[i] * compl === c) return [numbers[i], compl].sort((a, b) => count[a] - count[b]);
+    }
+
+    return null;
 }
 
 console.log(findAB([1,2,3], 3)) // [1,3]
