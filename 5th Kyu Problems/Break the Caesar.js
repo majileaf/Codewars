@@ -1023,18 +1023,14 @@ const encryptWord = (str, shift) => {
 
 const breakCaesar = st => {
   const arr = st.toLowerCase().match(/\w+/g);
-  const count = {};
+  const count = new Array(26).fill(0);
   
   for (let n = 1; n < 26; n++) {
-      let j = 0;
       for (let i = 0; i < arr.length; i++) {
-          if (WORDS.has(encryptWord(arr[i], n))) j++;
+          if (WORDS.has(encryptWord(arr[i], n))) count[n]++;
       }
-      count[26 - n] = j;
   }
-
-  let max = Math.max(...Object.values(count));
-  return +Object.keys(count).find(e => count[e] === max);
+  return 26 - count.indexOf(Math.max(...count));
 }
 
 console.log(breakCaesar("DAM?")) // 7
