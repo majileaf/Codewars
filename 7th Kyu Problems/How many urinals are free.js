@@ -29,16 +29,9 @@ const getFreeUrinals = urinals => {
 
     for (let i = 0; i < urinals.length; i++) {
         if (arr[i] === '1' && arr[i + 1] === '1') return -1;
-        else if (arr[i] === '0') {
-            if (
-                (arr.length === 1) || 
-                (i === 0 && arr[i + 1] === '0') ||
-                (arr[i + 1] === '0' && arr[i - 1] === '0') ||
-                (i === urinals.length - 1 && arr[i - 1] === '0')
-            ) {
-                arr[i] = "1";
-                count++;
-            }
+        else if (arr[i] === '0' && arr[i + 1] !== '1' && arr[i - 1] !== '1') {
+            arr[i] = "1";
+            count++;
         }
     }
     return count;
