@@ -14,10 +14,11 @@ const greatestProduct = input => {
     let count = 0;
 
     for (let i = 0; i < input.length; i++) {
-        while (input[i] == 0) {
+        if (input[i] == 0) {
             i++;
             current = 1;
             count = 0;
+            continue;
         }
         current *= input[i];
         count++;
