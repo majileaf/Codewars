@@ -11,7 +11,7 @@ Write a function that takes n and finds its scORe.
 1 000 000 | 1 048 575
 */
 
-const score = n => Math.max(2 ** Math.floor(Math.log(n) / Math.log(2)) * 2 - 1, 0);
+const score = n => Math.max(2 ** (Math.floor(Math.log2(n)) + 1) - 1, 0);
 
 console.log(score(0)) // 0
 console.log(score(1)) // 1
