@@ -49,10 +49,12 @@ Input/Output
     The number of days that it will take for the plant to reach/pass desiredHeight (including the last day in the total count).
 */
 
-const growingPlant = (upSpeed, downSpeed, desiredHeight) => {
-    const res = Math.ceil((desiredHeight - downSpeed) / (upSpeed - downSpeed));
-    return res < 1 ? 1 : res;
-}
+// const growingPlant = (upSpeed, downSpeed, desiredHeight) => {
+//     const res = Math.ceil((desiredHeight - downSpeed) / (upSpeed - downSpeed));
+//     return res < 1 ? 1 : res;
+// }
+
+const growingPlant = (upSpeed, downSpeed, desiredHeight) => Math.max(Math.ceil((desiredHeight - downSpeed) / (upSpeed - downSpeed)), 1);
 
 console.log(growingPlant(100,10,910)) // 10
 console.log(growingPlant(10,9,4)) // 1
