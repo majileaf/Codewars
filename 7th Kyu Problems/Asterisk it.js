@@ -17,7 +17,13 @@ Examples
 Have fun!
 */
 
-function asteriscIt(n) { };
+const asteriscIt = n => { 
+    n = Array.isArray(n) ? n.join('').split('') : [...String(n)];
+    for (let i = 0; i < n.length; i++) {
+        if (n[i] % 2 === 0 && n[i + 1] % 2 === 0) n[i] = n[i] + '*';
+    }
+    return n.join('');
+}
 
 console.log(asteriscIt(5312708)) // '531270*8'
 console.log(asteriscIt(9682135)) // '96*8*2135'
