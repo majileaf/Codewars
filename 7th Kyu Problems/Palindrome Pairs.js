@@ -14,13 +14,13 @@ Return an array of arrays containing pairs of distinct indices that form palindr
 they appear in the original list.
 */
 
-const checkPal = (word1, word2) => word1 + word2 === [...word1 + word2].reverse().join('');
+const isPalindrome = str => str === [...str].reverse().join('');
 const palindromePairs = words => {
     words = words.map(String);
     const res = [];
     for (let i = 0; i < words.length; i++) {
         for (let j = 0; j < words.length; j++) {
-            if (i !== j && checkPal(words[i], words[j])) res.push([i, j]);
+            if (i !== j && isPalindrome(words[i] + words[j])) res.push([i, j]);
         }
     }
     return res;
