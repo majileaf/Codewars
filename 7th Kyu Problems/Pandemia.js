@@ -24,7 +24,7 @@ string s = "01000000X000X011X0X"
 
 ➕ For maps without oceans "X" the whole world is connected.
 ➕ For maps without "0" and "1" return 0 as there is no population.
-*/
+*/ 
 
 const infected = s => {
     const infectedPeople = s.split('X')
