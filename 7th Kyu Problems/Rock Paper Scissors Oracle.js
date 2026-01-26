@@ -1,0 +1,28 @@
+/* Rock Paper Scissors Oracle
+You are the rock paper scissors oracle.
+
+Famed throughout the land, you have the incredible ability to predict which hand gestures your opponent will choose out of rock, paper and scissors.
+
+Unfortunately you're no longer a youngster, and have trouble moving your hands between rounds. For this reason, you can only pick a single gesture for each opponent. If it's possible for you to win, you will, but you're also happy to tie.
+
+Given an array of gestures — for example ["paper", "scissors", "scissors"] — return the winning gesture/s in the order in which they appear in the title, separated by a forward slash. For example, if rock and scissors could both be used to win you would return:
+
+"rock/scissors"
+
+If it's not possible for you to win then return:
+
+"tie"
+
+See https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors if you're not familiar with rock paper scissors.
+
+Second attempt at my first Kata...
+*/
+
+const gestureMap = {'rock': 'paper', 'paper': 'scissors', 'scissors': 'rock'};
+const getResult = (arr, gesture) => arr.reduce((sum, n) => sum + (gesture === gestureMap[n] ? 1 : n === gestureMap[gesture] ? -1 : 0), 0);
+const oracle = gestures => ['rock', 'paper', 'scissors'].filter(gesture => getResult(gestures, gesture) > 0).join('/') || 'tie';
+
+console.log(oracle(["rock","paper","scissors","rock"])) // "paper"
+console.log(oracle(["rock","paper","scissors"])) // "tie"
+console.log(oracle(["rock","paper","paper","scissors","scissors"])) // "scissors"
+console.log(oracle(["paper","scissors","scissors"])) // "rock/scissors"
