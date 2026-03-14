@@ -20,9 +20,7 @@ Examples
 "cat cat dog dog cat cat"  -->  3
 */
 
-function countAdjacentPairs(searchString) {
-  
-}
+const countAdjacentPairs = searchString => (searchString.match(/(\b\w+\b)(\s+\1)+/gi) || []).length;
 
 console.log(countAdjacentPairs("dog cat"                )) // 0
 console.log(countAdjacentPairs("dog DOG cat"            )) // 1
