@@ -10,7 +10,15 @@ stripUrlParams('www.codewars.com', ['b']) === 'www.codewars.com'
 */
 
 const stripUrlParams = (url, paramsToStrip = []) => {
-    
+    const [, plainURL, , params] = url.match(/(.+\..+)(\?)(.*)/) || [, url, , []];
+    const newParams = params.length 
+        ? Object.values(params
+            .split('&')
+            .map(e => [e[0], e])
+            .filter(e => !paramsToStrip.includes(e[0]))
+            .reduce((sum, [key, value]) => (sum[key] ? null : sum[key] = value, sum), {}))
+        : [];
+    return newParams.length ? plainURL + '?' + newParams.join('&') : plainURL;
 }
 
 console.log(stripUrlParams('www.codewars.com?a=1&b=2')) // 'www.codewars.com?a=1&b=2', "Didn't return correct value when given a url that had nothing to be stripped"
