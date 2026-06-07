@@ -8,11 +8,7 @@ Only by Thinking and Testing
 Look at result of testcase, guess the code!
 */
 
-function testit(a,b){
-  //return a+b ?
-  //return a*b ?
-  //return a?b;
-}
+const testit = (a, b) => a | b;
 
 //a+b?
 console.log(testit(0,1)) // 1
