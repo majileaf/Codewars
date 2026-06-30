@@ -15,7 +15,7 @@ lastDigit(9n, 7n)            // returns 9n
 lastDigit(10n,10000000000n)  // returns 0n
 */
 
-const lastDigit = (n, m) => m ? n ** (m % 4n || 4n) % 10n : 1n;
+const lastDigit = (n, m) => m ? (n % 10n) ** (m % 4n || 4n) % 10n : 1n;
 
 console.log(lastDigit(4n, 1n)) // 4n
 console.log(lastDigit(4n, 2n)) // 6n
