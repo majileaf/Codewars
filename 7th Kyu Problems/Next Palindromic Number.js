@@ -16,8 +16,13 @@ nextPal(2541) == 2552
 You will be receiving values higher than 10, all valid.
 */
 
-function nextPal(val) {
-    return nextPalindrome;
+const isPalindrome = n => n == [...String(n)].reverse().join('');
+const nextPal = val => {
+    let i = val + 1;
+    while (true) {
+        if (isPalindrome(i)) return i;
+        i++;
+    }
 }
 
 console.log(nextPal(11)) // 22
